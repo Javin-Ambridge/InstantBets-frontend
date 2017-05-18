@@ -1,7 +1,7 @@
 {
   "static": {
     "urls": {
-      "/index.html": "2bb7031d14fde050144bcffa86962135493dd537",
+      "/index.html": "21aaffc6ac9f77c0ad998e873cbd25bf0da250af",
       "/tsconfig.json": "7f882280500ccf5cf80c2d3fdd35c22a39f2f89a",
       "/worker-basic.js": "f07569f09d45f563d87e5de94dad5bdf459fba4b",
       "/app/app-routing.module.js": "7388de2acd58228c94000fdbd7be240f2219dce8",
@@ -15,11 +15,6 @@
       "/app/system-config.js": "ac140a1065086fccba87aaf1d72a0e315315973e",
       "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
       "/css/main.css": "96d6d8d018460547daafba0fb674c403eedbb600",
-      "/app/about/about-routing.module.js": "8aff6b39e93e0b5de558e9a0eb31d2d6aa6e0888",
-      "/app/about/about.component.css": "4b6073c6491b02c0afbecfcadbc76935840502cb",
-      "/app/about/about.component.html": "b62683a549175dcc411b8fd4e32bc87bc272e7ed",
-      "/app/about/about.component.js": "f5182fca1fcb733f509a683f17d41de97c183021",
-      "/app/about/about.module.js": "184cf930641a1053d5193f74192873a314c149c8",
       "/app/home/home-routing.module.js": "068f87d274ae0884f936c3fd24b51432bfcb49ab",
       "/app/home/home.component.css": "e1793b83555414ab700dba600fc45ae72ce63c42",
       "/app/home/home.component.html": "39140a13613dded5ea02aa06668d18045a1ec2d6",
@@ -29,17 +24,12 @@
       "/assets/favicon/favicon-DEV.ico": "aa4fb0706ed367fb5c2fd6bd2b058c0dce8cc785",
       "/assets/favicon/favicon-PROD.ico": "5d40a29d26398292f08a46b26f6788ec60f5f43e",
       "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc",
+      "/app/shared/state/index.js": "d3473c767d304d73f8e4bfc8f23a21330fb0e1ae",
+      "/app/shared/state/state.service.js": "15c21da1c7ffa525d437d4b16e2b897ac95605bf",
       "/app/shared/config/env.config.js": "e56be2d1f9ff253c73baca4013d9a1c429f1969a",
       "/app/shared/navbar/navbar.component.css": "ca29d0de0b312a878cc550aff78ec0db31750dda",
-      "/app/shared/navbar/navbar.component.js": "64b3e31b3648140232b47a129408d7b6623c8555",
       "/app/shared/navbar/navbar.component.html": "50fcc55d98e92fe5efe55753752161867ac8e5bc",
-      "/app/shared/name-list/index.js": "4d86cef7fbed4a8b38d622e0b634ba1b0377a29e",
-      "/app/shared/name-list/name-list.service.js": "6faa0e2152270eb445cfa85b942c1f5f430449dd",
-      "/app/shared/toolbar/toolbar.component.css": "3f1d3613b63747784feb4260941ee2b87d50f2ff",
-      "/app/shared/toolbar/toolbar.component.html": "ad9a7e5c07dd27a8be9e1a14f1ed57de310d40e8",
-      "/app/shared/toolbar/toolbar.component.js": "6849855c09efa08db50e93d20b2003ce11ebf94e",
-      "/app/shared/state/state.service.js": "15c21da1c7ffa525d437d4b16e2b897ac95605bf",
-      "/app/shared/state/index.js": "d3473c767d304d73f8e4bfc8f23a21330fb0e1ae"
+      "/app/shared/navbar/navbar.component.js": "64b3e31b3648140232b47a129408d7b6623c8555"
     }
   },
   "routing": {
