@@ -11,3 +11,10 @@ ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
+
+.home-container {
+	width: 60%;
+    margin: auto;
+    background-color: #FEFEFF;
+    padding: 15px;
+}
