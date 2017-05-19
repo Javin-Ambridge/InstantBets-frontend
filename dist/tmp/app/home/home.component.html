@@ -1,17 +1,22 @@
 <div class="row">
-	<div [ngClass]="oneUser == true ? 'small-12 columns' : 'small-12 medium-5 columns'" class="home-container">
+	<div [ngClass]="oneUser == true ? 'small-12 columns' : 'small-12 medium-5-5 columns'" class="home-container">
 		<div class="home-container-top">
 			<div *ngIf="oneUser" class="two-people-toggle">
 				<a (click)="toggleUserAmount()">
 					<i class="fa fa-users user-toggle" aria-hidden="true"></i>
 				</a>
 			</div>
+			<div *ngIf="oneUser == false" class="two-people-toggle show-for-small-only">
+				<a (click)="toggleUserAmount()">
+					<i class="fa fa-user user-toggle" aria-hidden="true"></i>
+				</a>
+			</div>
 		</div>
 		<a (click)="test()">Click</a><br>
 		{{tmpName}}
 	</div>
-	<div *ngIf="oneUser == false" class="small-0 medium-2 columns"></div>
-	<div *ngIf="oneUser == false" class="small-12 medium-5 columns home-container">
+	<div *ngIf="oneUser == false" class="small-0 medium-1 columns"></div>
+	<div *ngIf="oneUser == false" class="small-12 medium-5-5 columns extra-margin-top home-container">
 		<div class="home-container-top">
 			<div class="two-people-toggle">
 				<a (click)="toggleUserAmount()">

@@ -24,3 +24,18 @@
 .user-toggle:hover {
 	color: #FFE891;
 }
+
+@media (min-width: 40em) {
+	.medium-5-5 {
+		-webkit-flex: 0 0 45.8333375%;
+		    -ms-flex: 0 0 45.8333375%;
+		        flex: 0 0 45.8333375%;
+	    max-width: 45.8333375%;
+	}
+}
+
+@media (max-width: 40em) {
+	.extra-margin-top {
+		margin-top: 20px;
+	}
+}
