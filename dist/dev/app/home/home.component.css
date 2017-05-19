@@ -11,16 +11,3 @@ ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
-
-.home-container {
-    background-color: #FEFEFF;
-    padding: 0px;
-    box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
-}
-
-.home-container-top {
-	background-color: #34A2FE;
-	width: 100%;
-	height: 35%;
-	min-height: 65px;
-}

@@ -8,11 +8,12 @@ import { StateService } from '../shared/state/state.service';
   moduleId: module.id,
   selector: 'sd-home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css'],
+  styleUrls: ['home.component.css', 'home.css', '../global-css/global.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   tmpName: string = "temp name";
+  oneUser: boolean = true;
 
   constructor(public stateService: StateService,
     public ref: ChangeDetectorRef) {
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
     this.stateService.updateState("ADD_STATE", {
       name: ("fake name" + Math.floor((Math.random() * 10) + 1))
     });
+  }
+
+  toggleUserAmount(): void {
+    this.oneUser = !this.oneUser;
   }
 
 }

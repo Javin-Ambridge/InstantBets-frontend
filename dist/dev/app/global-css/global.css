@@ -1,0 +1,16 @@
+.margin-r-1 {
+	margin-right: 10px;
+}
+
+.margin-l-1 {
+	margin-left: 10px;
+}
+
+.border-l {
+	border-width: 0px 0px 0px 2px;
+	border-style: dashed;
+}
+
+.fright {
+	float: right;
+}

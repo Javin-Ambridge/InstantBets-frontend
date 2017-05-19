@@ -1,7 +1,7 @@
 {
   "static": {
     "urls": {
-      "/index.html": "4f54c899dd84436e210c440eb1ca26ee624d50df",
+      "/index.html": "6b8d8d3e1ee8e3bbd196997f26bb02bb3589cd06",
       "/tsconfig.json": "7f882280500ccf5cf80c2d3fdd35c22a39f2f89a",
       "/worker-basic.js": "f07569f09d45f563d87e5de94dad5bdf459fba4b",
       "/app/app-routing.module.js": "7388de2acd58228c94000fdbd7be240f2219dce8",
@@ -15,10 +15,12 @@
       "/app/system-config.js": "ac140a1065086fccba87aaf1d72a0e315315973e",
       "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
       "/css/main.css": "96d6d8d018460547daafba0fb674c403eedbb600",
+      "/app/global-css/global.css": "c93503e49878611604ded096dcc8fca7804271d0",
       "/app/home/home-routing.module.js": "068f87d274ae0884f936c3fd24b51432bfcb49ab",
       "/app/home/home.component.css": "e1793b83555414ab700dba600fc45ae72ce63c42",
-      "/app/home/home.component.html": "a540d1d463c81ceb9ff8c91d2e3dcd6b14d598e1",
-      "/app/home/home.component.js": "1ade4a7341fb09478bd37fc398348fa5824b7fa2",
+      "/app/home/home.component.html": "c76b011adfc5301c9ad9a1ec71e1fc85738cebd1",
+      "/app/home/home.component.js": "0b5de9730d12fce8ce607992755891af833e85b1",
+      "/app/home/home.css": "a747b3ccec92a1a15947d156c0009114a5959d6b",
       "/app/home/home.module.js": "192afee31a4f724782d01ca663c420309b882b18",
       "/app/shared/shared.module.js": "70c6349fb23ee2bb0b856e828a269f33802aa1ee",
       "/assets/favicon/favicon-DEV.ico": "aa4fb0706ed367fb5c2fd6bd2b058c0dce8cc785",
