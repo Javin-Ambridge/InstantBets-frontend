@@ -13,8 +13,13 @@ ul {
 }
 
 .home-container {
-	width: 60%;
-    margin: auto;
-    background-color: #FEFEFF;
-    padding: 15px;
+	background-color: #FEFEFF;
+	border-radius: 2%;
+	padding: 0px;
+}
+
+.home-container-top {
+	background-color: #34A2FE;
+	width: 100%;
+	height: 65px;
 }
