@@ -20,6 +20,7 @@
     padding: 0px;
     box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
     min-height: 600px;
+    position: relative;
 }
 
 .home-container-top, .home-container-topY {
