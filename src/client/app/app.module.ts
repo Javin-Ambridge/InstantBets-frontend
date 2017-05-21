@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { LearnMoreModule } from './learn-more/learn-more.module';
 import { SharedModule } from './shared/shared.module';
+import { WindowRef } from './shared/window/window.service';
+import { ScrollAnimationService } from './shared/scroll-animation/scroll-animation.service';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { SharedModule } from './shared/shared.module';
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }],
+  }, WindowRef,
+  ScrollAnimationService],
   bootstrap: [AppComponent]
 
 })
