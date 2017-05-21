@@ -32,4 +32,18 @@
 .home-container-topY {
 	background-color: #FEE64E;
 	min-height: 65vh;
+	text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.f-size25 {
+	font-size: 25px;
+}
+
+.f-size45 {
+	font-size: 45px;
+}
+
+.bold {
+	font-weight: bold;
 }
