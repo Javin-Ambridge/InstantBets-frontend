@@ -7,7 +7,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
   moduleId: module.id,
   selector: 'sd-learn-more',
   templateUrl: 'learn-more.component.html',
-  styleUrls: ['learn-more.component.css', 'learn-more.css', '../global-css/global.css'],
+  styleUrls: ['learn-more.component.css', 'styles.css', '../global-css/global.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LearnMoreComponent {

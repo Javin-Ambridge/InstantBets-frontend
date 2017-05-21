@@ -1,17 +1,3 @@
-.home-container {
-    background-color: #FEFEFF;
-    padding: 0px;
-    box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
-    min-height: 600px;
-}
-
-.home-container-top {
-	background-color: #34A2FE;
-	width: 100%;
-	height: 35%;
-	min-height: 65px;
-}
-
 .user-toggle {
 	color: #FEFEFF;
     font-size: 25px;
