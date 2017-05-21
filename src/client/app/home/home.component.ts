@@ -14,6 +14,7 @@ import { StateService } from '../shared/state/state.service';
 export class HomeComponent implements OnInit {
   tmpName: string = "temp name";
   oneUser: boolean = true;
+  logo: string = '/assets/images/instantbet-logo.png';
 
   constructor(public stateService: StateService,
     public ref: ChangeDetectorRef) {
