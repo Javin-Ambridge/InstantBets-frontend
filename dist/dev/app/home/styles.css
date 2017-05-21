@@ -2,6 +2,7 @@
     background-color: #FEFEFF;
     padding: 0px;
     box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
+    min-height: 600px;
 }
 
 .home-container-top {
@@ -25,6 +26,25 @@
 	color: #FFE891;
 }
 
+.logo {
+	width: 200px;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.learn-more-container {
+	background-color: #FEE64E;
+	min-height: 65px;
+	float: right;
+	margin-top: 20px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 3;
+	color: black;
+    box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
+}
+
 @media (min-width: 40em) {
 	.medium-5-5 {
 		-webkit-flex: 0 0 45.8333375%;
@@ -37,5 +57,8 @@
 @media (max-width: 40em) {
 	.extra-margin-top {
 		margin-top: 20px;
+	}
+	.home-container {
+		min-height: 100px;
 	}
 }

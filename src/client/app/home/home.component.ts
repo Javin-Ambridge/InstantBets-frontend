@@ -8,7 +8,7 @@ import { StateService } from '../shared/state/state.service';
   moduleId: module.id,
   selector: 'sd-home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css', 'home.css', '../global-css/global.css'],
+  styleUrls: ['home.component.css', 'styles.css', '../global-css/global.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
