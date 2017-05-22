@@ -1,0 +1,44 @@
+.example-container {
+	width: 50%;
+    margin: auto;
+    background-color: #E6E3F3;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.example-woman {
+	margin-left: 10px;
+}
+
+.example-man {
+	margin-right: 10px;
+}
+
+.dollar-sign {
+	color: #20AD22;
+    font-size: 20px;
+}
+
+.m-amount {
+	font-size: 20px;
+}
+
+.inner-notes {
+	margin-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.crown-image {
+	height: 95px;
+}
+
+@media (max-width: : 40em) {
+	.example-container {
+		width: 85%;
+	}
+	.example-woman, .example-man {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}

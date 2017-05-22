@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { BetViewComponent } from './bet-displaying/bet-view/bet-view.component';
+import { BetStateComponent } from './bet-displaying/bet-state/bet-state.component';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -11,8 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent,
+  declarations: [NavbarComponent, BetViewComponent, BetStateComponent],
+  exports: [NavbarComponent, BetViewComponent, BetStateComponent,
     CommonModule, FormsModule, RouterModule]
 })
 export class SharedModule {

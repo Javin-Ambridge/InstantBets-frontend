@@ -1,0 +1,58 @@
+<div *ngIf="type == 1" class="example-container">
+	<img class="example-man" src="/assets/images/man.png">
+	<img class="example-woman" src="/assets/images/wooman.png">
+	<hr class="style18">
+	<span class="font2">
+		<span class="bold">{{betObj.name1}}</span> V.S. <span class="bold">{{betObj.name2}}</span>
+	</span>
+	<br>
+	<span class="f-size25">{{betObj.title}}</span>
+	<hr class="style18">
+	<span class="font2 inner-notes">Bet Amount: <i class="fa fa-usd dollar-sign" aria-hidden="true"></i> <span class="m-amount">{{betObj.betAmount}}</span>
+	</span>
+	<br>
+	<span class="font2 inner-notes">Expected End Date: <i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{betObj.expectedEndDate}}</span></span>
+	<br>
+	<span class="font2 inner-notes">Bet Conditions: 
+		<span *ngFor="let cond of betObj.betNotes">
+			<br>
+			<span class="bold">{{cond.name}}</span> bets on <span class="bold">{{cond.bet}}</span>
+		</span>
+	</span>
+	<hr class="style18">
+	<span class="inner-notes">Confirmed On:
+		<span *ngFor="let confirm of betObj.confirmedOn">
+			<br>
+			<i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{confirm.confirmed}}</span> by <span class="bold">{{confirm.name}}</span>
+		</span>
+	</span><br>
+	<span class="inner-notes">
+		Bet State:
+		<sd-bet-state [state]="betObj.state"></sd-bet-state>
+	</span>
+</div>
+<div *ngIf="type == 2" class="example-container">
+	<img src="/assets/images/crown.png" class="crown-image">
+	<img class="crown-image" src="/assets/images/wooman.png"><br><br>
+	Congragulations <span class="bold">{{betObj.winner}}</span>!<br>
+	<hr class="style18">
+	<span class="inner-notes">
+		<span class="bold">{{betObj.winner}}</span> has won the <span class="bold">{{betObj.title}}</span> bet against:<br><span class="bold">{{betObj.loser}}</span><br>
+	</span>
+	<span class="inner-notes">
+		<span class="bold">{{betObj.winner}}</span> has won <i class="fa fa-usd dollar-sign" aria-hidden="true"></i> <span class="m-amount">{{betObj.betAmount}}</span>
+	</span>
+	<hr class="style18">
+	<span class="inner-notes">
+		Paid On:
+		<span *ngFor="let paid of betObj.paymentOn">
+			<br>
+			<i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{paid.date}}</span> by <span class="bold">{{paid.name}}</span>
+		</span>
+	</span>
+	<br>
+	<span class="inner-notes">
+		Bet State:
+		<sd-bet-state [state]="betObj.state"></sd-bet-state>
+	</span>
+</div>

@@ -21,7 +21,7 @@
 	</div>
 </div>
 <div class="row">
-	<a class="small-12 medium-3 return-home hvr-bounce-to-left" routerLink="/">
+	<a class="small-12 medium-4 large-3 return-home hvr-bounce-to-left" routerLink="/">
 		Make a new bet
 	</a>
 </div>
@@ -34,40 +34,7 @@
 			<span class="f-size45">Enter a few details about the <span class="hvr-underline-from-left">bet</span></span><br>
 			<span class="f-size25 font2">Things like what the winner gets, when the <span class="hvr-underline-from-left">bet</span> will be decided, etc.</span>
 			<br><br>
-			<div class="example-container">
-				<img class="example-man" src="/assets/images/man.png">
-				<img class="example-woman" src="/assets/images/wooman.png">
-				<hr class="style18">
-				<span class="font2">
-					<span class="bold">George Michael</span> V.S. <span class="bold">Susie McGeorge</span>
-				</span>
-				<br>
-				<span class="f-size25">NBA Finals</span>
-				<hr class="style18">
-				<span class="font2 inner-notes">Bet Amount: <i class="fa fa-usd dollar-sign" aria-hidden="true"></i> <span class="m-amount">12.00</span>
-				</span>
-				<br>
-				<span class="font2 inner-notes">Expected End Date: <i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{twoWeeksFromNow}}</span></span>
-				<br>
-				<span class="font2 inner-notes">Bet Conditions: 
-					<br>
-					<span class="bold">George Michael</span> bets on <span class="bold">Golden State</span>
-					<br>
-					<span class="bold">Susie McGeorge</span> bets on <span class="bold">Cleveland Cavaliers</span>
-				</span>
-				<hr class="style18">
-				<span class="inner-notes">Confirmed On:
-					<br>
-					<i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{twoDaysAgo}}</span> by <span class="bold">George Michael</span>
-					<br>
-					<i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{oneDayAgo}}</span> by <span class="bold">Susie McGeorge</span>
-				</span><br>
-				<span class="inner-notes">
-					Bet State:
-					<br>
-					<span class="bold">Active <i class="fa fa-check dollar-sign" aria-hidden="true"></i></span>
-				</span>
-			</div>
+			<sd-bet-view [betObj]="betObj" [type]="1"></sd-bet-view>
 			<br><br><br>
 		</div>
 		<a (click)="smoothScroll('learn-more-box-3')" class="lower-container">
@@ -78,7 +45,7 @@
 	</div>
 </div>
 <div class="row">
-	<a class="small-12 medium-3 return-home hvr-bounce-to-left" routerLink="/">
+	<a class="small-12 medium-4 large-3 return-home hvr-bounce-to-left" routerLink="/">
 		Make a new bet
 	</a>
 </div>
@@ -94,29 +61,7 @@
 			<i class="fa fa-arrow-down f-size25" aria-hidden="true"></i>
 			<br>
 			<span class="f-size25">Then, Lock in your bets!</span><br><br>
-			<div class="example-container">
-				<img src="/assets/images/crown.png" class="crown-image">
-				<img class="crown-image" src="/assets/images/wooman.png"><br><br>
-				Congragulations <span class="bold">Susie McGeorge</span>!<br>
-				<hr class="style18">
-				<span class="inner-notes">
-					<span class="bold">Susie McGeorge</span> has won the <span class="bold">NBA Finals</span> bet against:<br><span class="bold">George Michael</span><br>
-				</span>
-				<span class="inner-notes">
-					<span class="bold">Susie McGeorge</span> has won <i class="fa fa-usd dollar-sign" aria-hidden="true"></i> <span class="m-amount">12.00</span>
-				</span>
-				<hr class="style18">
-				<span class="inner-notes">
-					Paid On:<br>
-					<i class="fa fa-calendar-check-o f-size20" aria-hidden="true"></i> <span class="m-amount">{{today}}</span> by <span class="bold">George Michael</span>
-				</span>
-				<br>
-				<span class="inner-notes">
-					Bet State:
-					<br>
-					<span class="bold">Complete <i class="fa fa-flag-checkered dollar-sign" aria-hidden="true"></i></span>
-				</span>
-			</div>
+			<sd-bet-view [betObj]="betReceipt" [type]="2"></sd-bet-view>
 			<br>
 			<span class="f-size25">Figure out your winner, and track who has paid and who hasn't</span>
 			<br><br>
@@ -129,7 +74,7 @@
 	</div>
 </div>
 <div class="row">
-	<a class="small-12 medium-3 return-home hvr-bounce-to-left" routerLink="/">
+	<a class="small-12 medium-4 large-3 return-home hvr-bounce-to-left" routerLink="/">
 		Make a new bet
 	</a>
 </div>
