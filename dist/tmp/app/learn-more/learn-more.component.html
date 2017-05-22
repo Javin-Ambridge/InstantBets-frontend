@@ -20,7 +20,12 @@
 		</a>
 	</div>
 </div>
-<br><br><br>
+<div class="row">
+	<a class="small-12 medium-3 return-home hvr-bounce-to-left" routerLink="/">
+		Make a new bet
+	</a>
+</div>
+<span class="hide-for-small-only"><br><br><br></span>
 <div class="row" id="learn-more-box-2">
 	<div class="small-12 columns home-container">
 		<div class="home-container-topY">
@@ -65,7 +70,7 @@
 			</div>
 			<br><br><br>
 		</div>
-		<a>
+		<a (click)="smoothScroll('learn-more-box-3')">
 			<div class="transition-to-next">
 				<span>Step 2 <i class="fa fa-angle-down"></i></span>
 			</div>
@@ -77,4 +82,10 @@
 		Make a new bet
 	</a>
 </div>
-<span class="hide-for-small-only"><br></span>
+<span class="hide-for-small-only"><br><br><br></span>
+<div class="row" id="learn-more-box-3">
+	<div class="small-12 columns home-container">
+		<div class="home-container-topY">
+		</div>
+	</div>
+</div>

@@ -16,7 +16,7 @@ export class ScrollAnimationService {
 	}
     smoothScroll(eID: any, sub: number) {
 		var startY = currentYPosition();
-		var stopY = elmYPosition(eID) - sub;
+		var stopY = this.elmYPosition(eID) - sub;
 		var distance = stopY > startY ? stopY - startY : startY - stopY;
 		if (distance < 100) {
 			this.win.window.scrollTo(0, stopY); return;
@@ -37,6 +37,15 @@ export class ScrollAnimationService {
 			leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
 		}
 	}
+	elmYPosition(eID: any) {
+	    var elm = document.getElementById(eID);
+	    var y = elm.offsetTop;
+	    var node = elm;
+	    while (node.offsetParent && node.offsetParent != document.body) {
+	        node = (node.offsetParent);
+	        y += node.offsetTop;
+	    } return y;
+	}
 }
 
 function currentYPosition() {
@@ -48,14 +57,4 @@ function currentYPosition() {
     // Internet Explorer 6, 7 and 8
     if (document.body.scrollTop) return document.body.scrollTop;
     return 0;
-}
-
-function elmYPosition(eID: any) {
-    var elm = document.getElementById(eID);
-    var y = elm.offsetTop;
-    var node = elm;
-    while (node.offsetParent && node.offsetParent != document.body) {
-        node = (node.offsetParent);
-        y += node.offsetTop;
-    } return y;
 }
