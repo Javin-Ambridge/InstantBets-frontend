@@ -1,0 +1,13 @@
+.return-home {
+	background-color: #34A2FE;
+	min-height: 65px;
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 3;
+	color: black;
+    box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
+    font-family: 'Raleway', sans-serif;
+}
