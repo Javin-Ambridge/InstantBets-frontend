@@ -17,6 +17,7 @@ export class LearnMoreComponent implements OnInit {
 	twoWeeksFromNow: string;
 	twoDaysAgo: string;
 	oneDayAgo: string;
+  today: string;
     constructor(public scrollTo: ScrollAnimationService,
     	public dateFormat: DateFormatterService) {
     }
@@ -31,6 +32,7 @@ export class LearnMoreComponent implements OnInit {
     	this.oneDayAgo = this.dateFormat.formatDate(tmp3);
     	this.twoDaysAgo = this.dateFormat.formatDate(tmp2);
     	this.twoWeeksFromNow = this.dateFormat.formatDate(tmp);
+      this.today = this.dateFormat.formatDate(new Date());
     }
 
 	smoothScroll(eID: any) {

@@ -114,6 +114,10 @@ hr.style18:before {
     display: inline-block;
 }
 
+.crown-image {
+	height: 95px;
+}
+
 @media (max-width: 64em) {
 	.big-btn, .big-input {
 		width: 100%;
