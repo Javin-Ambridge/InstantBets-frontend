@@ -51,3 +51,59 @@
     color: black;
 }
 
+.step-notchs {
+	padding: 5px;
+	border: solid;
+	border-radius: 50%;
+}
+
+.example-container {
+	width: 50%;
+    margin: auto;
+    background-color: #E6E3F3;
+    padding-top: 10px;
+}
+
+.example-woman {
+	margin-left: 10px;
+}
+
+.example-man {
+	margin-right: 10px;
+}
+
+hr.style18 { 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+  width: 90%;
+  margin-top: 10px;
+} 
+
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+.dollar-sign {
+	color: #20AD22;
+    font-size: 20px;
+}
+
+.m-amount {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.inner-notes {
+	margin-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+}

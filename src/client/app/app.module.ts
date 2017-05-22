@@ -10,6 +10,7 @@ import { LearnMoreModule } from './learn-more/learn-more.module';
 import { SharedModule } from './shared/shared.module';
 import { WindowRef } from './shared/window/window.service';
 import { ScrollAnimationService } from './shared/scroll-animation/scroll-animation.service';
+import { DateFormatterService } from './shared/date-formatter/date-formatter.service';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ScrollAnimationService } from './shared/scroll-animation/scroll-animati
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
   }, WindowRef,
-  ScrollAnimationService],
+  ScrollAnimationService,
+  DateFormatterService],
   bootstrap: [AppComponent]
 
 })

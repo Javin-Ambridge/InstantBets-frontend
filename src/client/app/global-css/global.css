@@ -37,12 +37,24 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.f-size20 {
+	font-size: 20px;
+}
+
 .f-size25 {
 	font-size: 25px;
 }
 
 .f-size45 {
 	font-size: 45px;
+}
+
+.f-size65 {
+	font-size: 65px;
+}
+
+.font2 {
+	font-family: 'Merriweather', serif;
 }
 
 .bold {

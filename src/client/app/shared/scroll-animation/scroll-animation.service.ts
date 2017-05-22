@@ -14,9 +14,9 @@ export class ScrollAnimationService {
 		}, duration);
 		return;
 	}
-    smoothScroll(eID: any) {
+    smoothScroll(eID: any, sub: number) {
 		var startY = currentYPosition();
-		var stopY = elmYPosition(eID);
+		var stopY = elmYPosition(eID) - sub;
 		var distance = stopY > startY ? stopY - startY : startY - stopY;
 		if (distance < 100) {
 			this.win.window.scrollTo(0, stopY); return;
