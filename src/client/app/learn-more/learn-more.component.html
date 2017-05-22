@@ -13,7 +13,7 @@
 			    </div>
 			</span>
 		</div>
-		<a (click)="smoothScroll('learn-more-box-2')">
+		<a (click)="smoothScroll('learn-more-box-2')" class="lower-container">
 			<div class="transition-to-next">
 				<span>Learn More <i class="fa fa-angle-down"></i></span>
 			</div>
@@ -32,7 +32,7 @@
 			<br><br>
 			<span class="step-notchs">Step 1.</span><br>
 			<span class="f-size45">Enter a few details about the <span class="hvr-underline-from-left">bet</span></span><br>
-			<span class="f-size25 font2">Things like what the winner gets, when the bet will be decided, etc.</span>
+			<span class="f-size25 font2">Things like what the winner gets, when the <span class="hvr-underline-from-left">bet</span> will be decided, etc.</span>
 			<br><br>
 			<div class="example-container">
 				<img class="example-man" src="/assets/images/man.png">
@@ -70,7 +70,7 @@
 			</div>
 			<br><br><br>
 		</div>
-		<a (click)="smoothScroll('learn-more-box-3')">
+		<a (click)="smoothScroll('learn-more-box-3')" class="lower-container">
 			<div class="transition-to-next">
 				<span>Step 2 <i class="fa fa-angle-down"></i></span>
 			</div>
@@ -86,6 +86,26 @@
 <div class="row" id="learn-more-box-3">
 	<div class="small-12 columns home-container">
 		<div class="home-container-topY">
+			<br><br>
+			<span class="step-notchs">Step 2.</span><br>
+			<span class="f-size45">Add all the participants into the <span class="hvr-underline-from-left">bet</span></span><br>
+			<span class="f-size25 font2">Add as many members as your <span class="hvr-underline-from-left">bet</span> needs</span>
+			<br><br>
+			<i class="fa fa-arrow-down f-size25" aria-hidden="true"></i>
+			<br>
+			<span class="f-size25">Then, Lock in your bets!</span><br>
+			<img src="/assets/images/crown.png"><br>
+			<span class="f-size25">Figure out your winner, and track who has paid and who hasn't</span>
 		</div>
+		<a (click)="smoothScroll('learn-more-box-3')" class="lower-container">
+			<div class="transition-to-next">
+				<span>Step 2 <i class="fa fa-angle-down"></i></span>
+			</div>
+		</a>
 	</div>
+</div>
+<div class="row">
+	<a class="small-12 medium-3 return-home hvr-bounce-to-left" routerLink="/">
+		Make a new bet
+	</a>
 </div>

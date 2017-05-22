@@ -109,6 +109,11 @@ hr.style18:before {
     display: inline-block;
 }
 
+.lower-container {
+    min-height: 65px;
+    display: inline-block;
+}
+
 @media (max-width: 64em) {
 	.big-btn, .big-input {
 		width: 100%;
