@@ -60,3 +60,13 @@
 .bold {
 	font-weight: bold;
 }
+
+
+@media (max-width: 40em) {
+	.home-container {
+		min-height: 500px;
+	}
+	.home-container-topY {
+		min-height: 55vh;
+	}
+}

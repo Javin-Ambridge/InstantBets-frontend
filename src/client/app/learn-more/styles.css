@@ -62,6 +62,7 @@
     margin: auto;
     background-color: #E6E3F3;
     padding-top: 10px;
+    overflow: hidden;
 }
 
 .example-woman {
@@ -106,4 +107,32 @@ hr.style18:before {
 	margin-top: 10px;
     padding-bottom: 10px;
     display: inline-block;
+}
+
+@media (max-width: 64em) {
+	.big-btn, .big-input {
+		width: 100%;
+	}
+	.big-input {
+		margin-bottom: 0px;
+	}
+	.learn-more-input {
+		width: 80%;
+	}
+}
+
+@media (max-width: 40em) {
+	.top-title {
+		padding-top: 25px;
+	}
+	.learn-more-input {
+		width: 100%;
+	}
+	.example-container {
+		width: 85%;
+	}
+	.example-woman, .example-man {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
 }
