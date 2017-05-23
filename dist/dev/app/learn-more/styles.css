@@ -99,6 +99,20 @@
 	.learn-more-input {
 		width: 80%;
 	}
+	.in-dev-box {
+		width: 85%;
+		margin-top: 20px;
+	}
+	.in-dev-image, .in-dev-notes {
+		width: 100%;
+	}
+	.in-dev-notes {
+		text-align: center;
+	}
+	.continued-dev-svg {
+		float: none;
+		margin-right: 0px;
+	}
 }
 
 @media (max-width: 40em) {
@@ -110,5 +124,8 @@
 	}
 	.return-home {
 		margin-top: 0px;
+	}
+	.in-dev-box {
+		width: 95%;
 	}
 }
