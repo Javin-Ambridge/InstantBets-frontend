@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 760.877 676.647" style="enable-background:new 0 0 760.877 676.647;" xml:space="preserve">
+<g id="_x23_graphic">
+	<g>
+		<defs>
+			<circle id="SVGID_1_" cx="256.298" cy="256.005" r="256"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g style="clip-path:url(#SVGID_2_);">
+			<circle style="fill:#DB605A;" cx="256" cy="256.005" r="256"/>
+		</g>
+		<polygon style="opacity:0.29;clip-path:url(#SVGID_2_);" points="545.686,676.647 61.591,408.025 232.226,190.802 
+			449.705,158.925 760.877,410.907 		"/>
+		<path style="clip-path:url(#SVGID_2_);fill:#EAEBE1;stroke:#FFFFFF;stroke-miterlimit:10;" d="M444.667,409.498H67.333
+			c-6.6,0-12-5.4-12-12V170.924c0-6.6,5.4-12,12-12h377.335c6.6,0,12,5.4,12,12v226.575
+			C456.667,404.098,451.267,409.498,444.667,409.498z"/>
+		<rect x="75.333" y="182.251" style="clip-path:url(#SVGID_2_);fill:#FFFFFF;" width="361.334" height="203.922"/>
+		<g style="clip-path:url(#SVGID_2_);">
+			
+				<rect x="159.432" y="391.75" transform="matrix(0.9268 0.3756 -0.3756 0.9268 203.0688 -26.4742)" style="fill:#EAEBE1;" width="20" height="231.63"/>
+		</g>
+		<g style="clip-path:url(#SVGID_2_);">
+			
+				<rect x="342.767" y="391.75" transform="matrix(0.9268 -0.3756 0.3756 0.9268 -164.8263 169.6836)" style="fill:#EAEBE1;" width="20" height="231.63"/>
+		</g>
+		<g style="clip-path:url(#SVGID_2_);">
+			<path style="fill:#DB605A;" d="M144.195,274.17l26.674-46.202c-7.892-4.422-16.985-6.953-26.674-6.953
+				c-30.192,0-54.667,24.475-54.667,54.667c0,30.192,24.475,54.667,54.667,54.667s54.667-24.475,54.667-54.667
+				c0-0.507-0.024-1.008-0.038-1.512H144.195z"/>
+			<path style="fill:#26424B;" d="M197.254,274.17h-53.059v56.179c0,0,51.333,0,54.667-54.667c0.022-0.355,0.042-0.688,0.063-1.031
+				C198.297,274.586,197.742,274.416,197.254,274.17z"/>
+			<path style="fill:#78C1B0;" d="M96.588,248.799c0,0,25.19-46.283,74.282-20.831l-26.674,46.202L96.588,248.799z"/>
+		</g>
+		<polyline style="clip-path:url(#SVGID_2_);fill:none;stroke:#26424B;stroke-width:6;stroke-miterlimit:10;" points="
+			236.226,350.257 299.995,295.59 338.227,339.59 380.893,284.211 426.893,288.924 409.56,211.59 352.767,204.924 378.227,123.59 
+			240.226,98.924 288.893,49.59 		"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="300.226" cy="295.59" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="338.226" cy="338.59" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="380.893" cy="286.924" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="426.893" cy="288.924" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="405.539" cy="212.349" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="355.56" cy="208.59" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="380.893" cy="122.501" r="8.667"/>
+		<circle style="clip-path:url(#SVGID_2_);fill:#E8B750;" cx="240.893" cy="97.59" r="8.667"/>
+		<polygon style="clip-path:url(#SVGID_2_);fill:#E8B750;" points="291.868,28.034 292.227,41.373 303.419,48.639 290.844,53.103 
+			287.392,65.993 279.261,55.412 265.935,56.112 273.485,45.109 268.702,32.652 281.499,36.433 		"/>
+	</g>
+</g>
+<g id="Livello_1">
+</g>
+</svg>

@@ -45,6 +45,10 @@
 	font-size: 25px;
 }
 
+.f-size35 {
+	font-size: 35px;
+}
+
 .f-size45 {
 	font-size: 45px;
 }
@@ -64,6 +68,10 @@
 .dollar-sign {
 	color: #20AD22;
     font-size: 20px;
+}
+
+.text-left {
+	text-align: left;
 }
 
 hr.style18 { 

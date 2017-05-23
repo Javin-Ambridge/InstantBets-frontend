@@ -37,15 +37,56 @@
     color: black;
 }
 
-.step-notchs {
+.step-notchs, .step-notchs-large {
 	padding: 5px;
 	border: solid;
 	border-radius: 50%;
 }
 
+.step-notchs-large {
+	padding: 15px;
+}
+
 .lower-container {
     min-height: 65px;
     display: inline-block;
+}
+
+.extra-features-svg {
+	height: 100px;
+	margin-top: 15px;
+}
+
+.extra-features-save {
+	height: 80px;
+    margin-top: -10px;
+    margin-left: 30px;
+}
+
+.continued-dev-svg {
+	height: 100px;
+	float: right;
+	margin-right: 35px;
+}
+
+.in-dev-box {
+	width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    height: 200px;
+}
+
+.in-dev-image {
+	width: 50%;
+	float: left;
+}
+
+.in-dev-notes {
+	width: 50%;
+	float: right;
+	text-align: left;
 }
 
 @media (max-width: 64em) {
