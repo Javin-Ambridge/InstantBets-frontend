@@ -1,32 +1,19 @@
 <div class="row">
-	<div [ngClass]="oneUser == true ? 'small-12 columns' : 'small-12 medium-5-5 columns'" class="home-container">
-		<div class="home-container-top">
-			<div *ngIf="oneUser" class="two-people-toggle">
-				<a (click)="toggleUserAmount()">
-					<i class="fa fa-users user-toggle" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div *ngIf="oneUser == false" class="two-people-toggle show-for-small-only">
-				<a (click)="toggleUserAmount()">
-					<i class="fa fa-user user-toggle" aria-hidden="true"></i>
-				</a>
-			</div>
-			<img [src]="logo" class="logo">
-		</div>
-		<a (click)="test()">Click</a><br>
-		{{tmpName}}
-	</div>
-	<div *ngIf="oneUser == false" class="small-0 medium-1 columns"></div>
-	<div *ngIf="oneUser == false" class="small-12 medium-5-5 columns extra-margin-top home-container">
+	<div class="small-12 columns home-container">
 		<div class="home-container-top">
 			<div class="two-people-toggle">
 				<a (click)="toggleUserAmount()">
-					<i class="fa fa-user user-toggle" aria-hidden="true"></i>
+					<i *ngIf="oneUser" class="fa fa-users user-toggle" aria-hidden="true"></i>
+					<i *ngIf="oneUser == false" class="fa fa-user user-toggle" aria-hidden="true"></i>
+					<div class="toggle-helper">
+						<span class="font1">Toggle <span *ngIf="oneUser" class="bold">Two</span><span *ngIf="oneUser == false" class="bold">One</span> Person Signup</span>&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</div>
 				</a>
 			</div>
-
-			<img [src]="logo" class="logo show-for-small-only">
+			<span class="f-size45 bold">Instantly Create & Track Bets</span>
 		</div>
+		<a (click)="test()">Click</a><br>
+		{{tmpName}}
 	</div>
 </div>
 <sd-go-to-learn-more></sd-go-to-learn-more>

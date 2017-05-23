@@ -18,6 +18,19 @@
 	margin-left: 15px;
 }
 
+.toggle-helper {
+	width: 150px;
+    float: right;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.two-people-toggle {
+	width: 100%;
+	height: 75px;
+}
+
 @media (min-width: 40em) {
 	.medium-5-5 {
 		-webkit-flex: 0 0 45.8333375%;
