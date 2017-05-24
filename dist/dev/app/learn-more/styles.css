@@ -66,12 +66,6 @@
 }
 
 @media (max-width: 64em) {
-	.big-btn, .big-input {
-		width: 100%;
-	}
-	.big-input {
-		margin-bottom: 0px;
-	}
 	.learn-more-input {
 		width: 80%;
 	}

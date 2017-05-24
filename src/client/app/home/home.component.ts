@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { StateService } from '../shared/state/state.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -15,9 +16,13 @@ export class HomeComponent implements OnInit {
   tmpName: string = "temp name";
   oneUser: boolean = true;
   logo: string = '/assets/images/instantbet-logo.png';
+  sub: any;
+  betName: string;
 
   constructor(public stateService: StateService,
-    public ref: ChangeDetectorRef) {
+    public ref: ChangeDetectorRef,
+    public route: ActivatedRoute,
+    public router: Router) {
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
       this.tmpName = item.name;
@@ -29,6 +34,11 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
+    this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        this.betName = params['betName'];
+      });
   }
 
   test(): void {

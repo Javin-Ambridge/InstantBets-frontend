@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
 import { DateFormatterService } from '../shared/date-formatter/date-formatter.service';
+import { Router } from '@angular/router';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -21,8 +22,12 @@ export class LearnMoreComponent implements OnInit {
   betObj: any = {};
   betReceipt: any = {};
 
+  //bet name
+  betName: string;
+
   constructor(public scrollTo: ScrollAnimationService,
-  	public dateFormat: DateFormatterService) {
+  	public dateFormat: DateFormatterService,
+    public router: Router) {
   }
 
   ngOnInit(): void {
@@ -80,4 +85,8 @@ export class LearnMoreComponent implements OnInit {
 	smoothScroll(eID: any) {
 		this.scrollTo.smoothScroll(eID, 20);
 	}
+
+  navigateToHome(): void {
+    this.router.navigate(['/'], { queryParams: { betName: this.betName } });
+  }
 }

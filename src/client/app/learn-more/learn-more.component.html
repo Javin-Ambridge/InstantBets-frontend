@@ -6,8 +6,8 @@
 			    <div class="large-12 columns">
 			      <div class="row collapse postfix-round">
 			        <div class="learn-more-input">
-			          <input class="big-input" type="text" placeholder="What is the bet about?">
-			          <a href="#" class="button postfix big-btn hvr-icon-fade">Go</a>
+			          <input [(ngModel)]="betName" class="big-input font1 bold" type="text" placeholder="What is the bet about?">
+			          <a (click)="navigateToHome()" class="button postfix big-btn hvr-icon-fade">Go</a>
 			        </div>
 			      </div>
 			    </div>
@@ -20,7 +20,7 @@
 		</a>
 	</div>
 </div>
-<sd-return-home></sd-return-home>
+<sd-return-home (navigateToHome)="navigateToHome()"></sd-return-home>
 <span class="hide-for-small-only"><br><br><br></span>
 <div class="row" id="learn-more-box-2">
 	<div class="small-12 columns home-container">
@@ -40,7 +40,7 @@
 		</a>
 	</div>
 </div>
-<sd-return-home></sd-return-home>
+<sd-return-home (navigateToHome)="navigateToHome()"></sd-return-home>
 <span class="hide-for-small-only"><br><br><br></span>
 <div class="row" id="learn-more-box-3">
 	<div class="small-12 columns home-container">
@@ -65,7 +65,7 @@
 		</a>
 	</div>
 </div>
-<sd-return-home></sd-return-home>
+<sd-return-home (navigateToHome)="navigateToHome()"></sd-return-home>
 <span class="hide-for-small-only"><br><br><br></span>
 <div class="row" id="extra-features">
 	<div class="small-12 columns home-container">
@@ -97,7 +97,7 @@
 					<span class="f-size20 font2">... And more</span><br>
 				</div>
 			</div>
-			<br><span class="show-for-small-only"><br><br><br><br></span>
+			<br><span class="show-for-medium-only"><br><br><br><br></span><span class="show-for-small-only"><br><br><br><br></span>
 		</div>
 		<a (click)="smoothScroll('top-of-learn-more')" class="lower-container">
 			<div class="transition-to-next">
@@ -106,5 +106,5 @@
 		</a>
 	</div>
 </div>
-<sd-return-home></sd-return-home>
+<sd-return-home (navigateToHome)="navigateToHome()"></sd-return-home>
 <span class="hide-for-small-only"><br></span>

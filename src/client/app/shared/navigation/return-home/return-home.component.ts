@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,4 +6,10 @@ import { Component} from '@angular/core';
   templateUrl: 'return-home.component.html',
   styleUrls: ['return-home.component.css', '../../../global-css/global.css'],
 })
-export class ReturnHomeComponent { }
+export class ReturnHomeComponent { 
+	@Output() navigateToHome = new EventEmitter<boolean>();
+
+	navigate(): void {
+		this.navigateToHome.emit(true);
+	}
+}
