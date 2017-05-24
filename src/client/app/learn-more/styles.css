@@ -3,16 +3,6 @@
     display: block;
 }
 
-.transition-to-next {
-	text-align: center;
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    font-family: 'Raleway', sans-serif;
-    text-decoration: none;
-    color: black;
-}
-
 .step-notchs, .step-notchs-large {
 	padding: 5px;
 	border: solid;
@@ -23,10 +13,6 @@
 	padding: 15px;
 }
 
-.lower-container {
-    min-height: 65px;
-    display: inline-block;
-}
 
 .extra-features-svg {
 	height: 100px;

@@ -115,6 +115,21 @@
 	background-color: #283339;
 }
 
+.transition-to-next {
+	text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.lower-container {
+    min-height: 65px;
+    display: inline-block;
+}
+
 hr.style18 { 
   border-style: solid; 
   border-color: #8c8b8b; 

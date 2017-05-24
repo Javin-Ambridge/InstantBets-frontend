@@ -18,8 +18,20 @@
 	          <a href="#" class="button postfix big-btn-home hvr-icon-fade">Go</a>
 	        </div>
 		</div>
-		<a (click)="test()">Click</a><br>
-		{{tmpName}}
+		<a (click)="smoothScroll('learn-more-home')" class="lower-container">
+			<a (click)="test()">Click</a><br>
+			{{tmpName}}
+			<div class="transition-to-next">
+				<span>Learn More <i class="fa fa-angle-down"></i></span>
+			</div>
+		</a>
 	</div>
 </div>
 <sd-go-to-learn-more></sd-go-to-learn-more>
+<br>
+<div class="row" id="learn-more-home">
+	<div class="small-12 columns home-container">
+		<div class="home-container-top">
+		</div>
+	</div>
+</div>

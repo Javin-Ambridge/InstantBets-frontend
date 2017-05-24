@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   constructor(public stateService: StateService,
     public ref: ChangeDetectorRef,
     public route: ActivatedRoute,
-    public router: Router) {
+    public router: Router,
+    public scrollTo: ScrollAnimationService) {
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
       this.tmpName = item.name;
@@ -49,6 +51,10 @@ export class HomeComponent implements OnInit {
 
   toggleUserAmount(): void {
     this.oneUser = !this.oneUser;
+  }
+
+  smoothScroll(eId: any) {
+    this.scrollTo.smoothScroll(eId, 10);
   }
 
 }
