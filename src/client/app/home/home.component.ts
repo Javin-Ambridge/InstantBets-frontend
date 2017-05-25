@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
+import { AuthService } from '../shared/auth/auth.service';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit {
     public ref: ChangeDetectorRef,
     public route: ActivatedRoute,
     public router: Router,
-    public scrollTo: ScrollAnimationService) {
+    public scrollTo: ScrollAnimationService,
+    public auth: AuthService) {
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
       this.tmpName = item.name;
@@ -55,6 +57,10 @@ export class HomeComponent implements OnInit {
 
   smoothScroll(eId: any) {
     this.scrollTo.smoothScroll(eId, 10);
+  }
+
+  authAttempt(): void {
+    this.auth.login();
   }
 
 }

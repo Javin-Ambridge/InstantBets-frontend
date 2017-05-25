@@ -402,7 +402,8 @@ export class SeedConfig {
       'app/*': '/app/*',
       // For test config
       'dist/dev/*': '/base/dist/dev/*',
-      '*': 'node_modules/*'
+      '*': 'node_modules/*',
+      'auth0-js' : './node_modules/auth0-js/build/auth0.js'
     },
     packages: {
     }

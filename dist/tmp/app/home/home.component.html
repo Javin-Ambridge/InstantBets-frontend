@@ -15,7 +15,7 @@
 			<br>
 	        <div class="learn-more-input">
 	          <input [(ngModel)]="betName" class="big-input" type="text" placeholder="Name your bet">
-	          <a href="#" class="button postfix big-btn-home hvr-icon-fade">Go</a>
+	          <a (click)="authAttempt()" href="#" class="button postfix big-btn-home hvr-icon-fade">Go</a>
 	        </div>
 	        <div class="signup-flow-bottom">
 	        	<span *ngIf="oneUser" class="font2">Only one person is signing up and setting up the bet</span>
