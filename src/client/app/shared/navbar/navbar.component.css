@@ -15,3 +15,14 @@ nav a {
   vertical-align: middle;
   cursor: pointer;
 }
+
+.session-toggle {
+  float: right;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+.session-toggle:hover {
+  color: #FEE64E;
+}

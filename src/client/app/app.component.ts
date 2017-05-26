@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from './shared/config/env.config';
 import './operators';
 import { StateService } from './shared/state/state.service';
+import { AuthService } from './shared/auth/auth.service';
 
 /**
  * This class represents the main application component.
@@ -15,10 +16,20 @@ import { StateService } from './shared/state/state.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  constructor(public stateService: StateService) {
+  loggedIn: boolean = false;
+
+  constructor(public stateService: StateService,
+    public auth: AuthService) {
     console.log('Environment config', Config);
     this.stateService.state.subscribe((item) => {
-    	console.log("New state! From app.component.ts");
+      this.loggedIn = item.loggedIn;
+      console.log("New state! From app.component.ts: " + this.loggedIn);
     });
+    auth.handleAuthentication(stateService);
+  }
+
+  public logoutFunc(): void {
+    this.auth.logout();
+    this.stateService.updateState('ADD_STATE', {val: this.auth.isAuthenticated()});
   }
 }
