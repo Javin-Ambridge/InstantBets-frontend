@@ -166,7 +166,10 @@ hr.style18:before {
 	.home-container {
 		min-height: 500px;
 	}
-	.home-container-topY {
-		min-height: 55vh;
+	.learn-more-input {
+		width: 90%;
+	}
+	.example-container {
+		width: 85%;
 	}
 }

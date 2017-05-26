@@ -29,9 +29,6 @@
 }
 
 @media (max-width: : 40em) {
-	.example-container {
-		width: 85%;
-	}
 	.example-woman, .example-man {
 		margin-left: 0px;
 		margin-right: 0px;

@@ -1,16 +1,7 @@
 <div class="row" id="home-top">
 	<div class="small-12 columns home-container">
 		<div class="home-container-top">
-			<div class="two-people-toggle">
-				<a (click)="toggleUserAmount()">
-					<i *ngIf="oneUser" class="fa fa-users user-toggle" aria-hidden="true"></i>
-					<i *ngIf="oneUser == false" class="fa fa-user user-toggle" aria-hidden="true"></i>
-					<div class="toggle-helper">
-						<span class="font1">Toggle <span *ngIf="oneUser" class="bold">Two</span><span *ngIf="oneUser == false" class="bold">One</span> Person Signup</span>&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</div>
-				</a>
-			</div>
-			<span class="f-size45 bold bg-black-opac">Instantly Create & Track Bets</span><br>
+			<span class="f-size45 bold bg-black-opac home-title">Instantly Create & Track Bets</span><br>
 			<span class="f-size25 font2">Within 1 minute have a bet setup and saved permanently</span>
 			<br>
 	        <div class="learn-more-input">
@@ -23,8 +14,6 @@
 	        </div>
 		</div>
 		<a (click)="smoothScroll('learn-more-home')" class="lower-container">
-			<a (click)="test()">Click</a><br>
-			{{tmpName}}<br>
 			<div class="transition-to-next">
 				<span>Learn More <i class="fa fa-angle-down"></i></span>
 			</div>
@@ -32,7 +21,7 @@
 	</div>
 </div>
 <sd-go-to-learn-more></sd-go-to-learn-more>
-<br>
+<span class="hide-for-small-only"><br></span>
 <div class="row" id="learn-more-home">
 	<div class="small-12 columns home-container">
 		<div class="home-container-top">
