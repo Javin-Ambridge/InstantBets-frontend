@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { LearnMoreModule } from './learn-more/learn-more.module';
 import { SharedModule } from './shared/shared.module';
 import { WindowRef } from './shared/window/window.service';
@@ -14,7 +15,7 @@ import { DateFormatterService } from './shared/date-formatter/date-formatter.ser
 
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, HomeModule, LearnMoreModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, AppRoutingModule, HomeModule, LearnMoreModule, DashboardModule, SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
