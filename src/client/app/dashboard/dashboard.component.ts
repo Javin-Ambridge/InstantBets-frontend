@@ -36,12 +36,13 @@ export class DashboardComponent implements OnInit {
 	}
 
 	getDBData(): any {
-		console.log("Getting Dashboard DATA!@");
-	    this.authHttp.get(`https://instantbet.herokuapp.com/api/test`)
-	      .map(res => res.json())
-	      .subscribe((item) => {
-	      	console.log("donezo");
-	      });
+		if (this.isLoggedIn()) {
+		    this.authHttp.get(`https://instantbet.herokuapp.com/api/test`)
+		      .map(res => res.json())
+		      .subscribe((item) => {
+		      	console.log("donezo");
+		      });
+		}
 	}
 
 	isLoggedIn(): boolean {
