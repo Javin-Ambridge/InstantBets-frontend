@@ -13,7 +13,7 @@ export class AuthService {
 		    domain: 'javin.auth0.com',
 		    responseType: 'token id_token',
 		    audience: 'https://javin.auth0.com/userinfo',
-		    redirectUri: 'http://localhost:5555/',      
+		    redirectUri: 'http://localhost:5555/dashboard',      
 		    scope: 'openid'
 		});
 	}
@@ -27,13 +27,13 @@ export class AuthService {
 			if (authResult && authResult.accessToken && authResult.idToken) {
 				window.location.hash = '';
 				this.setSession(authResult);
-				this.router.navigate(['/']);
+				this.router.navigate(['/dashboard']);
 				stateService.updateState('ADD_STATE', {val: true});
 			} else if (err) {
-				this.router.navigate(['/']);
+				this.router.navigate(['/dashboard']);
+				stateService.updateState('ADD_STATE', {val: false});
 				console.log(err);
 			}
-			console.log("this shouldnt have happened!");
 		});
 	}
 

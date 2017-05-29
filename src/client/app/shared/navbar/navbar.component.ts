@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { StateService } from '../state/state.service';
 
 /**
  * This class represents the navigation bar component.
@@ -12,10 +13,16 @@ import { AuthService } from '../auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-	@Input() loggedIn: boolean;
+	loggedIn: boolean = false;
 	@Output() logoutFunc = new EventEmitter<boolean>();
 
-	constructor(public auth: AuthService) {
+	constructor(public auth: AuthService,
+		public stateService: StateService,
+    	public ref: ChangeDetectorRef) {
+		stateService.state.subscribe((item) => {
+			this.loggedIn = item.loggedIn;
+			ref.markForCheck();
+		});
 	}
 
 	attemptLogin(): void {

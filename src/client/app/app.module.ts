@@ -11,6 +11,7 @@ import { LearnMoreModule } from './learn-more/learn-more.module';
 import { SharedModule } from './shared/shared.module';
 import { WindowRef } from './shared/window/window.service';
 import { ScrollAnimationService } from './shared/scroll-animation/scroll-animation.service';
+import { StateService } from './shared/state/state.service';
 import { DateFormatterService } from './shared/date-formatter/date-formatter.service';
 
 
