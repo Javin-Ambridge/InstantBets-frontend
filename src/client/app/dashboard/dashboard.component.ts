@@ -3,6 +3,8 @@ import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
 import { AuthService } from '../shared/auth/auth.service';
+import { AuthHttp } from 'angular2-jwt';
+import 'rxjs/add/operator/map';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -14,21 +16,32 @@ import { AuthService } from '../shared/auth/auth.service';
   styleUrls: ['styles.css', '../global-css/global.css', '../global-css/folding-cube.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 	loggedIn: boolean = false;
 
 	constructor(public ref: ChangeDetectorRef,
 		public auth: AuthService,
-		public stateService: StateService) {
+		public stateService: StateService,
+		public authHttp: AuthHttp) {
 		stateService.state.subscribe((item) => {
 			console.log("changing right here1");
 			this.loggedIn = item.loggedIn;
+			this.getDBData();
 			ref.markForCheck();
 		});
 	}
 
-	ngOnChanges(): void {
-		console.log("auth: " + this.auth.isAuthenticated());
+	ngOnInit(): void {
+		this.getDBData();
+	}
+
+	getDBData(): any {
+		console.log("Getting Dashboard DATA!@");
+	    this.authHttp.get(`https://instantbet.herokuapp.com/api/test`)
+	      .map(res => res.json())
+	      .subscribe((item) => {
+	      	console.log("donezo");
+	      });
 	}
 
 	isLoggedIn(): boolean {

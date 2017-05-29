@@ -12,7 +12,7 @@ export class AuthService {
 		    clientID: 'hFYw47a5Br1piYe03gMNCUhelU00O149',
 		    domain: 'javin.auth0.com',
 		    responseType: 'token id_token',
-		    audience: 'https://javin.auth0.com/userinfo',
+		    audience: 'https://instantbet.herokuapp.com/',
 		    redirectUri: 'http://localhost:5555/dashboard',      
 		    scope: 'openid'
 		});
