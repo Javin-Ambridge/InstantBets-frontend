@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
 	auth0: any;
 
-	constructor(public router: Router) {
+	constructor(public router: Router,
+		public authHttp: AuthHttp) {
 		this.auth0 = new auth0.WebAuth({
 		    clientID: 'hFYw47a5Br1piYe03gMNCUhelU00O149',
 		    domain: 'javin.auth0.com',
 		    responseType: 'token id_token',
 		    audience: 'https://instantbet.herokuapp.com/',
 		    redirectUri: 'http://localhost:5555/dashboard',      
-		    scope: 'openid'
+		    scope: 'openid profile'
 		});
 	}
 
@@ -42,6 +44,11 @@ export class AuthService {
 		localStorage.setItem('access_token', authResult.accessToken);
 		localStorage.setItem('id_token', authResult.idToken);
 		localStorage.setItem('expires_at', expiresAt);
+	    this.authHttp.post(`https://instantbet.herokuapp.com/api/login-user`, {})
+	      .map(res => res.json())
+	      .subscribe((item) => {
+	      	console.log("donezo");
+	      });
 	}
 
 	public logout(): void {
@@ -52,6 +59,7 @@ export class AuthService {
 	}
 
 	public isAuthenticated(): boolean {
+		console.log('id: ' + localStorage.getItem("id_token"));
 		const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
 		return new Date().getTime() < expiresAt;
 	}

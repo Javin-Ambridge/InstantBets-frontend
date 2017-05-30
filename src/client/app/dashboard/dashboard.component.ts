@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
 
 	getDBData(): any {
 		if (this.isLoggedIn()) {
-		    this.authHttp.get(`https://instantbet.herokuapp.com/api/test`)
+		    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
 		      .map(res => res.json())
 		      .subscribe((item) => {
 		      	console.log("donezo");
