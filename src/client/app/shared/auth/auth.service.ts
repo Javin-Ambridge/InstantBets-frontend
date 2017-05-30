@@ -44,12 +44,7 @@ export class AuthService {
 		localStorage.setItem('access_token', authResult.accessToken);
 		localStorage.setItem('id_token', authResult.idToken);
 		localStorage.setItem('expires_at', expiresAt);
-	    this.authHttp.post(`https://instantbet.herokuapp.com/api/login-user`, {})
-	      .map(res => res.json())
-	      .subscribe((item) => {
-	      	localStorage.setItem('auth_id', item.auth_id);
-	      	console.log("authid: " + item.auth_id);
-	      });
+		localStorage.setItem('login-in', 'api-not-called');
 	}
 
 	public logout(): void {
@@ -57,6 +52,7 @@ export class AuthService {
 		localStorage.removeItem('id_token');
 		localStorage.removeItem('expires_at');
 		localStorage.removeItem('auth_id');
+		localStorage.removeItem('login-in');
 		this.router.navigate(['/']);
 	}
 

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
 import { AuthService } from '../shared/auth/auth.service';
 import { AuthHttp } from 'angular2-jwt';
+import { RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /**
@@ -37,22 +38,32 @@ export class DashboardComponent implements OnInit {
 
 	getDBData(): any {
 		if (this.isLoggedIn()) {
-			var auth = localStorage.getItem('auth_id');
-			var param: any = {};
-			if (auth != null) {
-				param.data = {
-					auth_id: auth
-				};
+			if (localStorage.getItem('login-in') == 'api-not-called') {
+				console.log("api not intiially called...");
+				this.authHttp.post(`https://instantbet.herokuapp.com/api/login-user`, {})
+			      .map(res => res.json())
+			      .subscribe((item) => {
+			      	localStorage.setItem('auth_id', item.auth_id);
+			      	localStorage.setItem('login-in', 'api-called');
+			      	console.log("authid: " + item.auth_id);
+				    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`, {
+				    	body: {
+				    		test: 123
+				    	}
+				    })
+				      .map(res => res.json())
+				      .subscribe((item) => {
+				      	console.log("donezo");
+				      });
+			      });
+			} else {
+				console.log("api intiailly called...");
+			    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
+			      .map(res => res.json())
+			      .subscribe((item) => {
+			      	console.log("donezo");
+			      });
 			}
-		    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`, {
-		    	body: {
-		    		test: 123
-		    	}
-		    })
-		      .map(res => res.json())
-		      .subscribe((item) => {
-		      	console.log("donezo");
-		      });
 		}
 	}
 
