@@ -19,7 +19,7 @@ import { DateFormatterService } from './shared/date-formatter/date-formatter.ser
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
-    tokenGetter: (() => localStorage.getItem('access_token'))
+    tokenGetter: (() => localStorage.getItem('access_token')),
   }), http, options);
 }
 

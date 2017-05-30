@@ -47,7 +47,8 @@ export class AuthService {
 	    this.authHttp.post(`https://instantbet.herokuapp.com/api/login-user`, {})
 	      .map(res => res.json())
 	      .subscribe((item) => {
-	      	console.log("donezo");
+	      	localStorage.setItem('auth_id', item.auth_id);
+	      	console.log("authid: " + item.auth_id);
 	      });
 	}
 
@@ -55,11 +56,11 @@ export class AuthService {
 		localStorage.removeItem('access_token');
 		localStorage.removeItem('id_token');
 		localStorage.removeItem('expires_at');
+		localStorage.removeItem('auth_id');
 		this.router.navigate(['/']);
 	}
 
 	public isAuthenticated(): boolean {
-		console.log('id: ' + localStorage.getItem("id_token"));
 		const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
 		return new Date().getTime() < expiresAt;
 	}
