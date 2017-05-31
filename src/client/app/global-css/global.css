@@ -150,6 +150,17 @@ hr.style18:before {
   border-radius: 20px; 
 }
 
+.error-color {
+	background-color: #ff0033;
+    padding: 5px 5px;
+    width: 100%;
+    display: inline-block;
+}
+
+.home-title-adjusted {
+	margin-top: 15px;
+}
+
 @media (max-width: 64em) {
 	.big-btn-home {
 		width: 100%;
@@ -171,5 +182,11 @@ hr.style18:before {
 	}
 	.example-container {
 		width: 85%;
+	}
+	.big-btn-home {
+		margin-bottom: 5px;
+	}
+	.error-color {
+		margin-bottom: 5px;
 	}
 }

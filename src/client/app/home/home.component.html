@@ -1,12 +1,13 @@
 <div class="row" id="home-top">
 	<div class="small-12 columns home-container">
 		<div class="home-container-top">
-			<span class="f-size45 bold bg-black-opac home-title">Instantly Create & Track Bets</span><br>
+			<span class="f-size45 bold bg-black-opac home-title" [class.home-title-adjusted]="step != 1">Instantly Create & Track Bets</span><br>
 			<span class="f-size25 font2">Within 1 minute have a bet setup and saved permanently</span>
 			<br>
-	        <div class="learn-more-input">
+	        <div *ngIf="step == 1" class="learn-more-input">
 	          <input [(ngModel)]="betName" class="big-input" type="text" placeholder="Name your bet">
-	          <a href="#" class="button postfix big-btn-home hvr-icon-fade">Go</a>
+	          <a (click)="transitionToNext()" class="button postfix big-btn-home hvr-icon-fade">Go</a>
+	          <span *ngIf="betNameErr" class="font2 error-color">Please input a bet name to continue..</span>
 	        </div>
 	        <div class="signup-flow-bottom">
 	        	<span class="font2">Do you never know when someone owes you money for a bet? Never worry again!</span>

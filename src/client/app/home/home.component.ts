@@ -14,11 +14,11 @@ import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animat
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  tmpName: string = "temp name";
   oneUser: boolean = true;
-  logo: string = '/assets/images/instantbet-logo.png';
   sub: any;
   betName: string;
+  betNameErr: boolean = false;
+  step: number = 1;
 
   constructor(public stateService: StateService,
     public ref: ChangeDetectorRef,
@@ -48,5 +48,18 @@ export class HomeComponent implements OnInit {
 
   smoothScroll(eId: any) {
     this.scrollTo.smoothScroll(eId, 10);
+  }
+
+  transitionToNext(): void {
+    switch(this.step) {
+      case 1:
+        if (this.betName == '' || !this.betName) {
+          this.betNameErr = true;
+        } else {
+          this.betNameErr = false;
+          this.step++;
+        }
+        break;
+    }
   }
 }
