@@ -85,6 +85,12 @@
     width: 80%;
 }
 
+.edit-button {
+	display: inline-block;
+    float: right;
+    margin-top: 4px;
+}
+
 @media (min-width: 40em) {
 	.medium-5-5 {
 		flex: 0 0 45.8333375%;

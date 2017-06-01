@@ -17,7 +17,7 @@
 		        	<br>
 		        	<a *ngIf="!betNameStep2" (click)="toggleValue('bet')" class="bet-name-container">
 			        	<span class="font2 bold">
-			        		{{betName}}&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			        		{{betName}}&nbsp;<i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
 			        	</span>
 			        </a>
 			       	<input *ngIf="betNameStep2" [(ngModel)]="betName" class="big-input no-margin-bot" type="text" placeholder="Name your bet">
