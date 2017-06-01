@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
+import * as $ from 'jquery';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -40,6 +41,9 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
+    $(document).ready(function() {
+      $('#datepicker').datepicker();
+    });
     this.sub = this.route
       .queryParams
       .subscribe(params => {

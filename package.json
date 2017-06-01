@@ -60,6 +60,7 @@
     "@types/gulp-sass": "^0.0.30",
     "@types/gulp-util": "^3.0.29",
     "@types/jasmine": "2.5.41",
+    "@types/jquery": "^2.0.45",
     "@types/node": "^6.0.73",
     "@types/rimraf": "0.0.28",
     "@types/run-sequence": "^0.0.29",
@@ -151,6 +152,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "intl": "^1.2.5",
+    "jquery": "^3.2.1",
     "rxjs": "^5.2.0",
     "systemjs": "0.19.41",
     "zone.js": "^0.8.7"

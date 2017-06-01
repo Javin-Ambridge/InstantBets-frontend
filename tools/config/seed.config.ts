@@ -405,6 +405,7 @@ export class SeedConfig {
       '*': 'node_modules/*',
       'auth0-js' : './node_modules/auth0-js/build/auth0.js',
       'angular2-jwt' : './node_modules/angular2-jwt/angular2-jwt.js',
+      'jquery' : './node_modules/jquery/dist/jquery.min.js'
 
     },
     packages: {
