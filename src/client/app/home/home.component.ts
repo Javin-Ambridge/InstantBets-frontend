@@ -76,6 +76,11 @@ export class HomeComponent implements OnInit {
           return;
         }
       break;
+      case 'amount':
+        if (this.betObj.amount == '' || !this.betObj.amount) {
+          this.betObj.amount = '0.00';
+        }
+      break;
     }
     this.toggleValue(item);
   }

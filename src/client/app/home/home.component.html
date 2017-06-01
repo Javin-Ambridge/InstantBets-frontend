@@ -29,7 +29,16 @@
 	        	<br>
 	        	<span class="step-2-body bg-black-opac-light font2">
 					<a (click)="toggleValue('amount')" *ngIf="!betObj.amountEdit" class="inherit-color">
-						<span class="font2"><span class="bold">Bet Amount:</span> <i class="fa fa-usd dollar-sign" aria-hidden="true"></i> <span class="m-amount yellow">{{betObj.amount}}&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+						<span class="font2">
+							<span>
+								<span class="bold">Bet Amount:
+								</span> 
+								<i class="fa fa-usd dollar-sign" aria-hidden="true"></i> 
+							</span>
+							<span class="m-amount bet-name-container updated">
+								{{betObj.amount}}&nbsp;
+								<i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
+							</span>
 						</span>
 					</a>
 			       	<input *ngIf="betObj.amountEdit" [(ngModel)]="betObj.amount" class="big-input no-margin-bot" type="number" min="0.00" step="0.01" placeholder="Enter an amount for the bet">
