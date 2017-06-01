@@ -65,6 +65,17 @@
     margin-top: 75px;
 }
 
+.step-2-container {
+	width: 70%;
+	margin: auto;
+	margin-top: 15px;
+}
+
+.step-2-title, .step-2-body {
+	width: 100%;
+    display: inline-block;
+}
+
 @media (min-width: 40em) {
 	.medium-5-5 {
 		flex: 0 0 45.8333375%;

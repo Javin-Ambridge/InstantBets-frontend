@@ -18,7 +18,12 @@ export class HomeComponent implements OnInit {
   sub: any;
   betName: string;
   betNameErr: boolean = false;
+  betNameStep2: boolean = false;
   step: number = 1;
+  betObj: any = {
+    amount: '0.00',
+    amountEdit: false
+  };
 
   constructor(public stateService: StateService,
     public ref: ChangeDetectorRef,
@@ -42,12 +47,37 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  toggleValue(item: string): void {
+    switch(item) {
+      case 'bet':
+        this.betNameStep2 = !this.betNameStep2;
+        if (this.betNameErr) this.betNameErr = false;
+        break;
+      case 'amount':
+        this.betObj.amountEdit = !this.betObj.amountEdit;
+        if (this.betObj.amountErr) this.betObj.amountErr = false;
+        break;
+    }
+  }
+
   toggleUserAmount(): void {
     this.oneUser = !this.oneUser;
   }
 
   smoothScroll(eId: any) {
     this.scrollTo.smoothScroll(eId, 10);
+  }
+
+  saveVal(item: string): void {
+    switch(item) {
+      case 'bet':
+        if (this.betName == '' || !this.betName) {
+          this.betNameErr = true;
+          return;
+        }
+      break;
+    }
+    this.toggleValue(item);
   }
 
   transitionToNext(): void {

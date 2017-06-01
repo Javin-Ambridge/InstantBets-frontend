@@ -6,6 +6,10 @@
 	margin-left: 10px;
 }
 
+.no-margin-bot {
+	margin-bottom: 0px !important;
+}
+
 .border-l {
 	border-width: 0px 0px 0px 2px;
 	border-style: dashed;
@@ -13,6 +17,22 @@
 
 .fright {
 	float: right;
+}
+
+.white {
+	color: white;
+}
+
+.yellow {
+	color: #FEE64E;
+}
+
+.inherit-color {
+	color: inherit;
+}
+
+.m-amount {
+	font-size: 20px;
 }
 
 .home-container {
@@ -82,9 +102,13 @@
 	text-align: left;
 }
 
-.bg-black-opac {
+.bg-black-opac, .bg-black-opac-light {
 	background-color: rgba(0, 0, 0, 0.20);
 	padding: 5px 15px;
+}
+
+.bg-black-opac-light {
+	background-color: rgba(0, 0, 0, 0.10);
 }
 
 .learn-more-input {
@@ -130,7 +154,7 @@
     display: inline-block;
 }
 
-hr.style18 { 
+hr.style18, hr.style18-white { 
   border-style: solid; 
   border-color: #8c8b8b; 
   border-width: 1px 0 0 0; 
@@ -139,7 +163,7 @@ hr.style18 {
   margin-top: 10px;
 } 
 
-hr.style18:before { 
+hr.style18:before, hr.style18-white:before { 
   display: block; 
   content: ""; 
   height: 30px; 
@@ -148,6 +172,16 @@ hr.style18:before {
   border-color: #8c8b8b; 
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
+}
+
+hr.style18-white {
+	border-color: white;
+	margin-bottom: 0px;
+	margin-top: 15px;
+}
+
+hr.style18-white:before {
+	border-color: white;
 }
 
 .error-color {
@@ -159,6 +193,10 @@ hr.style18:before {
 
 .home-title-adjusted {
 	margin-top: 15px;
+}
+
+.auto-margin {
+	margin: auto;
 }
 
 @media (max-width: 64em) {
