@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
+import { Location } from '@angular/common';
 import * as $ from 'jquery';
 
 /**
@@ -32,7 +33,8 @@ export class HomeComponent implements OnInit {
     public ref: ChangeDetectorRef,
     public route: ActivatedRoute,
     public router: Router,
-    public scrollTo: ScrollAnimationService) {
+    public scrollTo: ScrollAnimationService,
+    public location: Location) {
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
       ref.markForCheck(); //need to mark here if you want the view to be updated.
@@ -55,7 +57,25 @@ export class HomeComponent implements OnInit {
       .queryParams
       .subscribe(params => {
         this.betName = params['betName'];
+        if (params['page']) {
+          this.step = parseInt(params['page']);
+          this.refreshLoadPage(this.step);
+        }
       });
+  }
+
+  refreshLoadPage(page: number): void {
+    for(var i = 1; i < page; i++) {
+      $('#home-step-' + i).hide();
+    }
+    switch(page) {
+      case 2:
+        this.betName = localStorage.getItem('bet-name-home');
+        $('#home-step-' + this.step).show();
+        $('#home-container-top').css("height", "700px");
+        $('#home-title').css('marginTop', '15px');
+      break;
+    }
   }
 
   toggleValue(item: string): void {
@@ -96,6 +116,10 @@ export class HomeComponent implements OnInit {
         if (this.errorChecker('bet')) {
           this.betNameErr = true;
           return;
+        } else {
+          if (this.step > 1) {
+            localStorage.setItem('bet-name-home', this.betName);
+          }
         }
       break;
       case 'amount':
@@ -107,6 +131,16 @@ export class HomeComponent implements OnInit {
     this.toggleValue(item);
   }
 
+  localSaveAndParams(step: number): void {
+    switch(step) {
+      case 2:
+        var params = '?page=2';
+        this.location.replaceState(params);
+        localStorage.setItem('bet-name-home', this.betName);
+      break;
+    }
+  }
+
   transitionToNext(): void {
     switch(this.step) {
       case 1:
@@ -114,6 +148,7 @@ export class HomeComponent implements OnInit {
           this.betNameErr = true;
         } else {
           this.betNameErr = false;
+          this.localSaveAndParams(2);
           $('#home-step-1').fadeOut("slow", () => {
             $('#home-container-top').animate({
               height: '700px'

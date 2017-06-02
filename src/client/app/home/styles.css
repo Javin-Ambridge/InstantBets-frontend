@@ -118,6 +118,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: black;
+    text-align: center;
 }
 
 @media (min-width: 40em) {
