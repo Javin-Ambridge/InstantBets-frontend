@@ -1,6 +1,6 @@
 <div class="row" id="home-top">
 	<div class="small-12 columns home-container">
-		<div class="home-container-top">
+		<div class="home-container-top" id="home-container-top">
 			<span class="f-size45 bold bg-black-opac home-title" id="home-title">Instantly Create & Track Bets</span><br>
 			<span class="f-size25 font2">Within 1 minute have a bet setup and saved permanently</span>
 			<br>
@@ -13,7 +13,37 @@
 	        	<span class="font2">Do you never know when someone owes you money for a bet? Never worry again!</span>
 	        </div>
 	        <div class="step-2-container" id="home-step-2">
-	        	<span class="step-2-title bg-black-opac font1"><span class="bold">Bet Name:</span>
+				<img class="money-img" src="/assets/images/money.png">
+				<br>
+				<a *ngIf="!betNameStep2" (click)="toggleValue('bet')" class="bet-name-container">
+		        	<span class="font2 bold">
+		        		{{betName}}&nbsp;<i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
+		        	</span>
+		        </a>
+		       	<input *ngIf="betNameStep2" [(ngModel)]="betName" class="big-input no-margin-bot" type="text" placeholder="Name your bet">
+          		<a (click)="saveVal('bet')" *ngIf="betNameStep2" class="button postfix big-btn-home hvr-icon-fade no-margin-bot">Save</a>
+          		<span *ngIf="betNameErr" class="font2 error-color">Please input a bet name to continue..</span>
+          		<br>
+          		<hr class="divider-bet-init">
+          		<span class="font2">Enter as much information about the bet as possible. Inviting friends comes next.</span>
+          		<hr class="divider-bet-init">
+          		<span class="font1 f-size20">Bet Amount</span>
+          		<br>
+          		<a (click)="toggleValue('amount')" *ngIf="!betObj.amountEdit" class="inherit-color">
+					<span class="font2">
+						<span class="m-amount bet-name-container updated">
+							{{betObj.amount}}&nbsp;
+							<i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
+						</span>
+					</span>
+				</a>
+		       	<input *ngIf="betObj.amountEdit" [(ngModel)]="betObj.amount" class="big-input no-margin-bot" type="number" min="0.00" step="0.01" placeholder="Enter an amount for the bet">
+          		<a (click)="saveVal('amount')" *ngIf="betObj.amountEdit" class="button postfix big-btn-home hvr-icon-fade no-margin-bot">Save</a>
+          		<br><br>
+          		<span class="font1 f-size20">Expected End Date</span>
+          		<br>
+		        <input type="date" #myDate class="date-chooser-home" [value]="betObj.endDate">
+	        	<!--<span class="step-2-title bg-black-opac font1"><span class="bold">Bet Name:</span>
 		        	<br>
 		        	<a *ngIf="!betNameStep2" (click)="toggleValue('bet')" class="bet-name-container">
 			        	<span class="font2 bold">
@@ -45,7 +75,7 @@
 	          		<a (click)="saveVal('amount')" *ngIf="betObj.amountEdit" class="button postfix big-btn-home hvr-icon-fade no-margin-bot">Save</a>
 		        	<br><br>
 		        	<input type="date">
-	        	</span>
+	        	</span>-->
 	        </div>
 		</div>
 		<a (click)="smoothScroll('learn-more-home')" class="lower-container">

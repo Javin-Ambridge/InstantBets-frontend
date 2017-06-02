@@ -70,6 +70,10 @@
 	margin: auto;
 	margin-top: 15px;
 	display: none;
+	background-color: #e6e3f3;
+	color: black;
+	border-width: 2px;
+	border-style: dashed;
 }
 
 .step-2-title, .step-2-body {
@@ -84,6 +88,8 @@
     display: inline-block;
     margin-top: 5px;
     width: 80%;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .bet-name-container.updated {
@@ -94,6 +100,24 @@
 	display: inline-block;
     float: right;
     margin-top: 4px;
+}
+
+.money-img {
+	height: 64px;
+}
+
+.divider-bet-init {
+	width: 90%;
+    border-top: 3px double #8c8b8b;
+}
+
+.date-chooser-home {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 @media (min-width: 40em) {

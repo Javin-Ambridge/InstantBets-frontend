@@ -21,9 +21,11 @@ export class HomeComponent implements OnInit {
   betNameErr: boolean = false;
   betNameStep2: boolean = false;
   step: number = 1;
+  topHeight: string = '35%';
   betObj: any = {
     amount: '0.00',
-    amountEdit: false
+    amountEdit: false,
+    endDate: 'mm/dd/yyyy'
   };
 
   constructor(public stateService: StateService,
@@ -112,12 +114,16 @@ export class HomeComponent implements OnInit {
           this.betNameErr = true;
         } else {
           this.betNameErr = false;
-          $('#home-step-1').fadeOut("slow", function() {
-            $('#home-title').animate({
-              marginTop: '15px'
-            }, "slow");
-            $("#home-step-2").fadeIn("slow");
-            this.step++;
+          $('#home-step-1').fadeOut("slow", () => {
+            $('#home-container-top').animate({
+              height: '700px'
+            }, "slow", () => {
+              $('#home-title').animate({
+                marginTop: '15px'
+              }, "slow");
+              $("#home-step-2").fadeIn("slow");
+              this.step++;
+            });
           });
         }
         break;

@@ -43,7 +43,7 @@
     position: relative;
 }
 
-.home-container-top, .home-container-topY {
+.home-container-top, .home-container-topY, .home-container-top2 {
 	background-color: #34A2FE;
 	width: 100%;
 	height: 35%;
@@ -51,8 +51,12 @@
 	text-align: center;
 }
 
-.home-container-top {
+.home-container-top, .home-container-top2 {
 	color: white;
+}
+
+.home-container-top2 {
+	height: 700px;
 }
 
 .home-container-topY {
