@@ -41,8 +41,13 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
-    $(document).ready(function() {
-      $('#datepicker').datepicker();
+    $('#home-input').keypress((e) => {
+      if (e.which == 13) {
+        this.transitionToNext();
+        if (this.errorChecker('bet')) $('#home-input').blur();
+      } else if (this.betNameErr && !this.errorChecker('bet')) {
+        this.betNameErr = false;
+      }
     });
     this.sub = this.route
       .queryParams
@@ -72,16 +77,27 @@ export class HomeComponent implements OnInit {
     this.scrollTo.smoothScroll(eId, 10);
   }
 
+  errorChecker(item: string): boolean {
+    switch(item) {
+      case 'bet':
+        return (this.betName == '' || !this.betName);
+      case 'amount':
+        return (this.betObj.amount == '' || !this.betObj.amount);
+    }
+    console.log("[ErrProb1]: If you see this, there is a problem..");
+    return false; //shouldnt be reached..
+  }
+
   saveVal(item: string): void {
     switch(item) {
       case 'bet':
-        if (this.betName == '' || !this.betName) {
+        if (this.errorChecker('bet')) {
           this.betNameErr = true;
           return;
         }
       break;
       case 'amount':
-        if (this.betObj.amount == '' || !this.betObj.amount) {
+        if (this.errorChecker('amount')) {
           this.betObj.amount = '0.00';
         }
       break;
@@ -92,11 +108,17 @@ export class HomeComponent implements OnInit {
   transitionToNext(): void {
     switch(this.step) {
       case 1:
-        if (this.betName == '' || !this.betName) {
+        if (this.errorChecker('bet')) {
           this.betNameErr = true;
         } else {
           this.betNameErr = false;
-          this.step++;
+          $('#home-step-1').fadeOut("slow", function() {
+            $('#home-title').animate({
+              marginTop: '15px'
+            }, "slow");
+            $("#home-step-2").fadeIn("slow");
+            this.step++;
+          });
         }
         break;
     }

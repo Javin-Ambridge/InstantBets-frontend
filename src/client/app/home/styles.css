@@ -69,6 +69,7 @@
 	width: 70%;
 	margin: auto;
 	margin-top: 15px;
+	display: none;
 }
 
 .step-2-title, .step-2-body {
