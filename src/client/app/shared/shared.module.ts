@@ -9,6 +9,7 @@ import { BetStateComponent } from './bet-displaying/bet-state/bet-state.componen
 import { ReturnHomeComponent } from './navigation/return-home/return-home.component';
 import { GoToLearnMoreComponent } from './navigation/go-to-learn-more/go-to-learn-more.component';
 import { AuthService } from './auth/auth.service';
+import { HomeContainerTwoComponent } from './home/home-container-two/home-container-two.component';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -16,9 +17,27 @@ import { AuthService } from './auth/auth.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [NavbarComponent, BetViewComponent, BetStateComponent, ReturnHomeComponent, GoToLearnMoreComponent],
-  exports: [NavbarComponent, BetViewComponent, BetStateComponent, ReturnHomeComponent, GoToLearnMoreComponent,
-    CommonModule, FormsModule, RouterModule],
+  declarations: 
+    [
+      NavbarComponent, 
+      BetViewComponent, 
+      BetStateComponent, 
+      ReturnHomeComponent, 
+      GoToLearnMoreComponent,
+      HomeContainerTwoComponent
+    ],
+  exports: 
+    [
+      NavbarComponent, 
+      BetViewComponent, 
+      BetStateComponent, 
+      ReturnHomeComponent, 
+      GoToLearnMoreComponent,
+      HomeContainerTwoComponent,
+      CommonModule, 
+      FormsModule, 
+      RouterModule
+    ],
   providers: [AuthService]
 })
 export class SharedModule {

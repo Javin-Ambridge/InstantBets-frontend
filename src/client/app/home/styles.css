@@ -8,6 +8,11 @@
     padding: 5px;
 }
 
+.bet-name-adjust {
+	display: inline-block;
+    margin-right: -16px;
+}
+
 .user-toggle:hover {
 	color: #FFE891;
 }
@@ -29,28 +34,6 @@
 .two-people-toggle {
 	width: 100%;
 	height: 120px;
-}
-
-.home-workflow {
-	width: 100%;
-	height: 250px;
-	margin-top: 65px;
-}
-
-.workflow-left {
-	width: 50%;
-	float: left;
-	text-align: center;
-}
-
-.workflow-right {
-	width: 50%;
-	float: right;
-	text-align: center;
-}
-
-.workflow-left-svg {
-	height: 125px;
 }
 
 .signup-flow-bottom {
@@ -96,6 +79,10 @@
 	width: 60%;
 }
 
+.bet-name-container.full {
+	width: 90%;
+}
+
 .edit-button {
 	display: inline-block;
     float: right;
@@ -119,6 +106,120 @@
     border-width: 1px;
     border-color: black;
     text-align: center;
+    height: 50px;
+}
+
+.date-chooser-home.bet {
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+.bet-edit-btn {
+	width: 15%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: 45px;
+    line-height: 1.4;
+}
+
+.left-icon-container {
+	width: 10%;
+	display: inline-block;
+	float: left;
+	margin-top: 5px;
+}
+
+.i-bet-container {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.i-bet-container-top {
+	display: inline-block;
+	width: 100%;
+}
+
+.small-bet-person {
+	height: 35px;
+	display: inline-block;
+}
+
+.small-bet-person.left {
+	float: left;
+}
+
+.small-bet-person.right {
+	float: right;
+}
+
+.add-bet-condition {
+    float: left;
+    height: 50px;
+    margin-bottom: 0px;
+}
+
+.add-bet-condition.left {
+	width: 30%;
+}
+
+.add-bet-condition.right {
+	width: 70%;
+}
+
+.add-bet-cond-btn {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 0px;
+	color: black;
+    background-color: #34A2FE;
+}
+
+.create-bet-btn {
+	background-color: #FEE64E;
+    height: 65px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.7;
+    color: black;
+    box-shadow: 5px 5px 1px rgba(136, 136, 136, 0.56);
+    font-family: 'Raleway', sans-serif;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    display: inline-block;
+}
+
+.extra-condition-container {
+	width: 80%;
+    margin-left: auto;
+    height: 50px;
+    margin-right: auto;
+}
+
+.extra-condition-name {
+	width: 25%;
+    float: left;
+    height: 50px;
+}
+
+.extra-condition-val {
+	width: 60%;
+    float: left;
+    height: 50px;
+}
+
+.remove-condition-btn {
+	width: 15%;
+	float: left;
+	height: 50px;
+	font-size: 20px;
+    background-color: #ff0033;
 }
 
 @media (min-width: 40em) {

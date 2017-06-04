@@ -23,10 +23,14 @@ export class HomeComponent implements OnInit {
   betNameStep2: boolean = false;
   step: number = 1;
   topHeight: string = '35%';
+  pageTwoHeight: string = '1100px';
+  extraConditionName: string = '';
+  extraConditionVal: string = '';
   betObj: any = {
     amount: '0.00',
-    amountEdit: false,
-    endDate: 'mm/dd/yyyy'
+    endDate: null,
+    betCondition: '',
+    extraConditions: []
   };
 
   constructor(public stateService: StateService,
@@ -35,6 +39,12 @@ export class HomeComponent implements OnInit {
     public router: Router,
     public scrollTo: ScrollAnimationService,
     public location: Location) {
+
+    //Setting betobj enddate default to 3 weeks.
+    var tmp: Date = new Date();
+    tmp.setDate(tmp.getDate() + 21);
+    this.betObj.endDate = tmp;
+
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
       ref.markForCheck(); //need to mark here if you want the view to be updated.
@@ -45,14 +55,7 @@ export class HomeComponent implements OnInit {
    * Get the names OnInit
    */
   ngOnInit() {
-    $('#home-input').keypress((e) => {
-      if (e.which == 13) {
-        this.transitionToNext();
-        if (this.errorChecker('bet')) $('#home-input').blur();
-      } else if (this.betNameErr && !this.errorChecker('bet')) {
-        this.betNameErr = false;
-      }
-    });
+    this.keyWatchers();
     this.sub = this.route
       .queryParams
       .subscribe(params => {
@@ -71,11 +74,23 @@ export class HomeComponent implements OnInit {
     switch(page) {
       case 2:
         this.betName = localStorage.getItem('bet-name-home');
+        this.betObj.amount = localStorage.getItem('bet-amount-home')
         $('#home-step-' + this.step).show();
-        $('#home-container-top').css("height", "700px");
+        $('#home-container-top').css("height", this.pageTwoHeight);
         $('#home-title').css('marginTop', '15px');
       break;
     }
+  }
+
+  keyWatchers(): void {
+    $('#home-input').keypress((e) => {
+      if (e.which == 13) {
+        this.transitionToNext();
+        if (this.errorChecker('bet')) $('#home-input').blur();
+      } else if (this.betNameErr && !this.errorChecker('bet')) {
+        this.betNameErr = false;
+      }
+    });
   }
 
   toggleValue(item: string): void {
@@ -83,10 +98,6 @@ export class HomeComponent implements OnInit {
       case 'bet':
         this.betNameStep2 = !this.betNameStep2;
         if (this.betNameErr) this.betNameErr = false;
-        break;
-      case 'amount':
-        this.betObj.amountEdit = !this.betObj.amountEdit;
-        if (this.betObj.amountErr) this.betObj.amountErr = false;
         break;
     }
   }
@@ -105,6 +116,12 @@ export class HomeComponent implements OnInit {
         return (this.betName == '' || !this.betName);
       case 'amount':
         return (this.betObj.amount == '' || !this.betObj.amount);
+      case 'bet-condition':
+        return (this.betObj.betCondition == '' || !this.betObj.betCondition);
+      case 'bet-condition-name':
+        return (this.extraConditionName == '' || !this.extraConditionName);
+      case 'bet-condition-val':
+        return (this.extraConditionVal == '' || !this.extraConditionVal);
     }
     console.log("[ErrProb1]: If you see this, there is a problem..");
     return false; //shouldnt be reached..
@@ -122,11 +139,6 @@ export class HomeComponent implements OnInit {
           }
         }
       break;
-      case 'amount':
-        if (this.errorChecker('amount')) {
-          this.betObj.amount = '0.00';
-        }
-      break;
     }
     this.toggleValue(item);
   }
@@ -137,8 +149,38 @@ export class HomeComponent implements OnInit {
         var params = '?page=2';
         this.location.replaceState(params);
         localStorage.setItem('bet-name-home', this.betName);
+        localStorage.setItem('bet-amount-home', this.betObj.amount);
       break;
     }
+  }
+
+  helpfulCache(): void {
+
+  }
+
+  addCondition(): void {
+    if (!this.errorChecker('bet-condition-name') && !this.errorChecker('bet-condition-val')) {
+      this.betObj.extraConditions.push({
+        conditionName: this.extraConditionName,
+        val: this.extraConditionVal
+      });
+      this.extraConditionVal = '';
+      this.extraConditionName = '';
+      $('#add-condition-name').css('border-color', '#cacaca');
+      $('#add-condition-val').css('border-color', '#cacaca');
+      this.helpfulCache();
+      return;
+    }
+    if (this.errorChecker('bet-condition-name')) {
+      $('#add-condition-name').css('border-color', '#ff0033');
+    } 
+    if (this.errorChecker('bet-condition-val')) { //val is empty
+      $('#add-condition-val').css('border-color', '#ff0033');
+    }
+  }
+
+  removeCondition(ind: number): void {
+    this.betObj.extraConditions.splice(ind, 1);
   }
 
   transitionToNext(): void {
@@ -148,20 +190,20 @@ export class HomeComponent implements OnInit {
           this.betNameErr = true;
         } else {
           this.betNameErr = false;
-          this.localSaveAndParams(2);
           $('#home-step-1').fadeOut("slow", () => {
             $('#home-container-top').animate({
-              height: '700px'
+              height: this.pageTwoHeight
             }, "slow", () => {
               $('#home-title').animate({
                 marginTop: '15px'
               }, "slow");
               $("#home-step-2").fadeIn("slow");
-              this.step++;
             });
           });
         }
         break;
     }
+    this.step++;
+    this.localSaveAndParams(this.step);
   }
 }

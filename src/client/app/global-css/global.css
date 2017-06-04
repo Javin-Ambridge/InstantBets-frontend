@@ -15,6 +15,16 @@
 	border-style: dashed;
 }
 
+.inline-b {
+	display: inline-block;
+}
+
+.w60-container {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .fright {
 	float: right;
 }
@@ -65,6 +75,10 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.f-size15 {
+	font-size: 15px;
+}
+
 .f-size20 {
 	font-size: 20px;
 }
@@ -102,6 +116,11 @@
     font-size: 20px;
 }
 
+.dollar-sign.currency {
+	font-size: 27px;
+    line-height: 1.6;
+}
+
 .text-left {
 	text-align: left;
 }
@@ -130,7 +149,17 @@
 	width: 85%;
 }
 
-.big-btn, .big-btn-home {
+.big-input.currency {
+	width: 95%;
+}
+
+.currency-container {
+	display: inline-block;
+	width: 5%;
+	float: left;
+}
+
+.big-btn, .big-btn-home, .bet-edit-btn {
 	width: 15%;
 	background-color: #34A2FE;
     font-family: 'Raleway', sans-serif;
@@ -139,8 +168,19 @@
     font-weight: bold;
 }
 
-.big-btn-home {
+.big-btn-home, .bet-edit-btn {
 	background-color: #283339;
+	height: 45px;
+}
+
+.bet-edit-btn.smaller {
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.bet-edit-btn {
+	font-size: 15px;
+	line-height: 1.4;
 }
 
 .transition-to-next {
@@ -195,12 +235,24 @@ hr.style18-white:before {
     display: inline-block;
 }
 
+.error-color-font {
+	color: #ff0033;
+}
+
 .auto-margin {
 	margin: auto;
 }
 
+.currency-input {
+    border: 1px inset #ccc;
+}
+
+.currencyinput input {
+    border: 0;
+}
+
 @media (max-width: 64em) {
-	.big-btn-home {
+	.big-btn-home, .bet-edit-btn {
 		width: 100%;
 	}
 	.big-btn, .big-input {
@@ -221,7 +273,7 @@ hr.style18-white:before {
 	.example-container {
 		width: 85%;
 	}
-	.big-btn-home {
+	.big-btn-home, .bet-edit-btn {
 		margin-bottom: 5px;
 	}
 	.error-color {
