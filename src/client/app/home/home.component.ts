@@ -158,12 +158,25 @@ export class HomeComponent implements OnInit {
 
   }
 
+  readjustTopH(): void {
+    var change: any = parseInt(this.pageTwoHeight.slice(0, this.pageTwoHeight.length - 2)) + (this.betObj.extraConditions.length * 65);
+    if (this.betObj.extraConditions.length >= 10) {
+      change -= 200;
+    }
+    change += 'px';
+    console.log('change: ' + change);
+    $('#home-container-top').animate({
+      height: change
+    }, "fast");
+  }
+
   addCondition(): void {
     if (!this.errorChecker('bet-condition-name') && !this.errorChecker('bet-condition-val')) {
       this.betObj.extraConditions.push({
         conditionName: this.extraConditionName,
         val: this.extraConditionVal
       });
+      this.readjustTopH();
       this.extraConditionVal = '';
       this.extraConditionName = '';
       $('#add-condition-name').css('border-color', '#cacaca');
@@ -181,6 +194,7 @@ export class HomeComponent implements OnInit {
 
   removeCondition(ind: number): void {
     this.betObj.extraConditions.splice(ind, 1);
+    this.readjustTopH();
   }
 
   transitionToNext(): void {
