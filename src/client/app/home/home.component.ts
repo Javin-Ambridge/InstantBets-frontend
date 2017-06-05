@@ -159,10 +159,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  helpfulCache(): void {
-
-  }
-
   addCondition(): void {
     if (!this.errorChecker('bet-condition-name') && !this.errorChecker('bet-condition-val')) {
       this.betObj.extraConditions.push({
@@ -173,7 +169,6 @@ export class HomeComponent implements OnInit {
       this.extraConditionName = '';
       $('#add-condition-name').css('border-color', '#cacaca');
       $('#add-condition-val').css('border-color', '#cacaca');
-      this.helpfulCache();
       return;
     }
     if (this.errorChecker('bet-condition-name')) {
@@ -188,11 +183,18 @@ export class HomeComponent implements OnInit {
     this.betObj.extraConditions.splice(ind, 1);
   }
 
+  clearLocalStorage(): void {
+    localStorage.removeItem('bet-name-home');
+    localStorage.removeItem('bet-amount-home');
+  }
+
   betCreation(): void {
     if (!this.errorChecker('bet') && !this.errorChecker('bet-condition')) {
       $('#bet-name-container').css('border-color', '#cacaca');
       $('#bet-condition-input').css('border-color', '#cacaca');
-      console.log("Can Continue.");
+      this.clearLocalStorage();
+      this.betObj.name = this.betName;
+      this.auth.login(this.betObj);
     }
     if (this.errorChecker('bet')) {
       $('#bet-name-container').css('border-color', '#ff0033');

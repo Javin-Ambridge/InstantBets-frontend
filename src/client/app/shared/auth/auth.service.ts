@@ -15,13 +15,17 @@ export class AuthService {
 		    domain: 'javin.auth0.com',
 		    responseType: 'token id_token',
 		    audience: 'https://instantbet.herokuapp.com/',
-		    redirectUri: 'http://localhost:5555/dashboard',      
+		    redirectUri: 'http://localhost:5555/',      
 		    scope: 'openid profile'
 		});
 	}
 
-	public login(): void {
-		this.auth0.authorize({});
+	public login(betobj?: any): void {
+		if (betobj) {
+			this.auth0.authorize({state: '[betObj]:' + JSON.stringify(betobj)});
+		} else {
+			this.auth0.authorize({});
+		}
 	}
 
 	public handleAuthentication(stateService: any): void {
@@ -29,14 +33,32 @@ export class AuthService {
 			if (authResult && authResult.accessToken && authResult.idToken) {
 				window.location.hash = '';
 				this.setSession(authResult);
-				this.router.navigate(['/dashboard']);
-				stateService.updateState('ADD_STATE', {val: true});
+
+				//Needs to be done after session is set.
+				if (authResult.state.slice(0, 9) == '[betObj]:') {
+					var betObj = JSON.parse(authResult.state.slice(9));
+					this.createBet(betObj, stateService);
+				} else {
+					this.router.navigate(['/dashboard']);
+					stateService.updateState('ADD_STATE', {val: true});
+				}
 			} else if (err) {
 				this.router.navigate(['/dashboard']);
 				stateService.updateState('ADD_STATE', {val: false});
 				console.log(err);
 			}
 		});
+	}
+
+	public createBet(betObj: any, stateService: any): void {
+		this.authHttp.post(`https://instantbet.herokuapp.com/api/create-bet`, {
+			bet: JSON.stringify(betObj)
+		})
+	      .map(res => res.json())
+	      .subscribe((item) => {
+			this.router.navigate(['/dashboard']);
+			stateService.updateState('ADD_STATE', {val: true});
+	      });
 	}
 
 	private setSession(authResult: any): void {
