@@ -15,7 +15,7 @@
 	        <div class="step-2-container" id="home-step-2">
 				<img class="money-img" src="/assets/images/money.png">
 				<br>
-				<a *ngIf="!betNameStep2" (click)="toggleValue('bet')" class="bet-name-container">
+				<a *ngIf="!betNameStep2" (click)="toggleValue('bet')" class="bet-name-container" id="bet-name-container">
 		        	<span class="font2 bold">
 		        		<span class="bet-name-adjust">{{betName}}</span><i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
 		        	</span>
@@ -33,7 +33,7 @@
           		<br>
 				<div class="bet-name-container updated">
 					<span class="currency-container"><i class="fa fa-usd dollar-sign currency" aria-hidden="true"></i></span>
-					<input [(ngModel)]="betObj.amount" class="big-input currency no-margin-bot" type="number" min="0.00" step="1.00" placeholder="Enter an amount for the bet">
+					<input [(ngModel)]="betObj.amount" class="big-input currency no-margin-bot" type="number" min="0.00" step="1.00" placeholder="Enter an amount for the bet" id="bet-amount-container">
 	          	</div>
           		<br>
           		<span class="font1 f-size20">Expected End Date</span>
@@ -70,7 +70,16 @@
           			<a (click)="addCondition()" class="button postfix add-bet-cond-btn font1 hvr-glow">Add Condition</a>
           		</div>
           		<hr  *ngIf="betObj.extraConditions.length < 10" class="divider-bet-init">
-          		<a class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
+          		<div *ngIf="!loggedIn" class="not-logged-in-save-bet">
+          			<span class="not-logged-in-helpfultip font1">
+          				<span class="bold">Looks like your not logged in.</span>
+          				<br>
+          				The button below will transition you to our partner Auth0 to authenticate you or create your account. Then the bet will be saved.
+          			</span>
+          			<br>
+          			<a (click)="betCreation()" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
+          		</div>
+          		<a *ngIf="loggedIn" (click)="betCreation()" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
 	        </div>
 		</div>
 		<a (click)="smoothScroll('learn-more-home')" class="lower-container">

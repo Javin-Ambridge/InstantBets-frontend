@@ -3,6 +3,7 @@ import { StateService } from '../shared/state/state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animation.service';
 import { Location } from '@angular/common';
+import { AuthService } from '../shared/auth/auth.service';
 import * as $ from 'jquery';
 
 /**
@@ -23,9 +24,10 @@ export class HomeComponent implements OnInit {
   betNameStep2: boolean = false;
   step: number = 1;
   topHeight: string = '35%';
-  pageTwoHeight: string = '1100px';
+  pageTwoHeight: string = '1200px';
   extraConditionName: string = '';
   extraConditionVal: string = '';
+  loggedIn: boolean = false;
   betObj: any = {
     amount: '0.00',
     endDate: null,
@@ -38,7 +40,10 @@ export class HomeComponent implements OnInit {
     public route: ActivatedRoute,
     public router: Router,
     public scrollTo: ScrollAnimationService,
-    public location: Location) {
+    public location: Location,
+    public auth: AuthService) {
+
+    this.loggedIn = auth.isAuthenticated();
 
     //Setting betobj enddate default to 3 weeks.
     var tmp: Date = new Date();
@@ -47,6 +52,7 @@ export class HomeComponent implements OnInit {
 
     this.stateService.state.subscribe((item) => {
       console.log("new state! From home.component.ts");
+      this.loggedIn = item.loggedIn;
       ref.markForCheck(); //need to mark here if you want the view to be updated.
     });
   }
@@ -195,6 +201,20 @@ export class HomeComponent implements OnInit {
   removeCondition(ind: number): void {
     this.betObj.extraConditions.splice(ind, 1);
     this.readjustTopH();
+  }
+
+  betCreation(): void {
+    if (!this.errorChecker('bet') && !this.errorChecker('bet-condition')) {
+      $('#bet-name-container').css('border-color', '#cacaca');
+      $('#bet-condition-input').css('border-color', '#cacaca');
+      console.log("Can Continue.");
+    }
+    if (this.errorChecker('bet')) {
+      $('#bet-name-container').css('border-color', '#ff0033');
+    }
+    if (this.errorChecker('bet-condition')) {
+      $('#bet-condition-input').css('border-color', '#ff0033');
+    }
   }
 
   transitionToNext(): void {
