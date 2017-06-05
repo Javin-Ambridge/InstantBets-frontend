@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
 				    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
 				      .map(res => res.json())
 				      .subscribe((item) => {
-			      		this.bets = item.success;
+			      		this.bets = item.bets;
 			      		this.ref.markForCheck();
 				      });
 			      });
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
 			    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
 			      .map(res => res.json())
 			      .subscribe((item) => {
-			      	this.bets = item.success;
+			      	this.bets = item.bets;
 			      	this.ref.markForCheck();
 			      });
 			}
