@@ -1,0 +1,81 @@
+.empty-img {
+	height: 75px;
+    margin-top: 20px;
+}
+
+.bet-container {
+	background-color: #f6f6f6;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 55px;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.left-nice-img {
+	display: inline-block;
+    float: left;
+    margin-left: 10px;
+}
+
+.small-bet-person {
+	height: 39px;
+    margin-top: 5px;
+}
+
+.bet-info-container {
+	height: 52px;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+
+.end-date-info {
+	color: #5084d3;
+}
+
+.bet-amount-container {
+	display: inline-block;
+    height: 42px;
+    float: right;
+    margin-top: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    border-style: solid;
+    border-width: 1px;
+    color: #5084d3;
+    width: 100px;
+    border-radius: 20%;
+    overflow: hidden;
+    line-height: 1;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.delete-bet-btn, .add-members-btn, .edit-bet-btn {
+	float: right;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+	margin-top: 6px;
+	color: black;
+	width: 50px;
+}
+
+.delete-bet-btn {
+	background-color: #ff0033;
+}
+
+.add-members-btn {
+	background-color: #fee64e;
+}
+
+.edit-bet-btn {
+	background-color: #5084d3;
+}

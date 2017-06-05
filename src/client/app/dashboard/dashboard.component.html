@@ -2,7 +2,8 @@
 	<div class="small-12 columns home-container">
 		<div class="home-container-top">
 			<div *ngIf="isLoggedIn()" class="logged-in-db">
-				<span class="dashboard-title">Bets</span>
+				<span class="f-size45 bold bg-black-opac home-title bet-view">Bet View</span>
+				<sd-bet-view-dashboard [bets]="bets"></sd-bet-view-dashboard>
 			</div>
 			<div *ngIf="!isLoggedIn()" class="logged-out-db">
 				<br><br>

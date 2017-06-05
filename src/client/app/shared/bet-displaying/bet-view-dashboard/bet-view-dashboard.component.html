@@ -1,0 +1,7 @@
+<div class="bet-view-container">
+	<div *ngIf="newBetsOpen" class="bet-type-container">
+		<a (click)="toggleView('new')"><span class="bet-type-title font1 hvr-overline-reveal">New Bets ({{newBets.length}} New Bets)</span></a>
+		<sd-bet-view-new [bets]="newBets"></sd-bet-view-new>
+	</div>
+	<a (click)="toggleView('new')"><span *ngIf="!newBetsOpen" class="bet-type-title solo font1 hvr-overline-reveal">New Bets ({{newBets.length}} New Bets)</span></a>
+</div>

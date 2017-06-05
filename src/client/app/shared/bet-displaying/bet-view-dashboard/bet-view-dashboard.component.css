@@ -1,0 +1,31 @@
+.bet-view-container {
+	width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+}
+
+.bet-type-container {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e5ebdf;
+    color: black;
+    padding-bottom: 10px;
+}
+
+.bet-type-title {
+	display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f6f6f6;
+    height: 70px;
+    line-height: 1.7;
+    font-size: 30px;
+    margin-top: -20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bet-type-title.solo {
+    border-radius: 0%;
+}

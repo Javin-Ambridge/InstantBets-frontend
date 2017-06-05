@@ -19,6 +19,7 @@ import 'rxjs/add/operator/map';
 })
 export class DashboardComponent implements OnInit {
 	loggedIn: boolean = false;
+	bets: any = [];
 
 	constructor(public ref: ChangeDetectorRef,
 		public auth: AuthService,
@@ -46,14 +47,11 @@ export class DashboardComponent implements OnInit {
 			      	localStorage.setItem('auth_id', item.auth_id);
 			      	localStorage.setItem('login-in', 'api-called');
 			      	console.log("authid: " + item.auth_id);
-				    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`, {
-				    	body: {
-				    		test: 123
-				    	}
-				    })
+				    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
 				      .map(res => res.json())
 				      .subscribe((item) => {
-				      	console.log("donezo");
+			      		this.bets = item.success;
+			      		this.ref.markForCheck();
 				      });
 			      });
 			} else {
@@ -61,7 +59,8 @@ export class DashboardComponent implements OnInit {
 			    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
 			      .map(res => res.json())
 			      .subscribe((item) => {
-			      	console.log("donezo");
+			      	this.bets = item.success;
+			      	this.ref.markForCheck();
 			      });
 			}
 		}

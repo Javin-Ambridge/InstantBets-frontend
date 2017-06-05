@@ -251,6 +251,16 @@ hr.style18-white:before {
     border: 0;
 }
 
+.home-title {
+	display: inline-block;
+    margin-top: 75px;
+}
+
+.home-title.bet-view {
+	margin-top: 5px;
+	width: 60%;
+}
+
 @media (max-width: 64em) {
 	.big-btn-home, .bet-edit-btn {
 		width: 100%;

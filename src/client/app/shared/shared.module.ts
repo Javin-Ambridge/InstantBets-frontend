@@ -10,6 +10,8 @@ import { ReturnHomeComponent } from './navigation/return-home/return-home.compon
 import { GoToLearnMoreComponent } from './navigation/go-to-learn-more/go-to-learn-more.component';
 import { AuthService } from './auth/auth.service';
 import { HomeContainerTwoComponent } from './home/home-container-two/home-container-two.component';
+import { BetViewDashboardComponent } from './bet-displaying/bet-view-dashboard/bet-view-dashboard.component';
+import { BetViewNewComponent } from './bet-displaying/bet-view-new/bet-view-new.component';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -24,7 +26,9 @@ import { HomeContainerTwoComponent } from './home/home-container-two/home-contai
       BetStateComponent, 
       ReturnHomeComponent, 
       GoToLearnMoreComponent,
-      HomeContainerTwoComponent
+      HomeContainerTwoComponent,
+      BetViewDashboardComponent,
+      BetViewNewComponent
     ],
   exports: 
     [
@@ -34,6 +38,8 @@ import { HomeContainerTwoComponent } from './home/home-container-two/home-contai
       ReturnHomeComponent, 
       GoToLearnMoreComponent,
       HomeContainerTwoComponent,
+      BetViewDashboardComponent,
+      BetViewNewComponent,
       CommonModule, 
       FormsModule, 
       RouterModule
