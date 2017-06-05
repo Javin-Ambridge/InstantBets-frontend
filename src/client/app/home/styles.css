@@ -57,6 +57,7 @@
 	color: black;
 	border-width: 2px;
 	border-style: dashed;
+	margin-bottom: 20px;
 }
 
 .step-2-title, .step-2-body {
@@ -266,5 +267,29 @@
 	}
 	.signup-flow-bottom {
 		display: none;
+	}
+	.step-2-container {
+		width: 95%;
+	}
+	.bet-name-container.updated {
+		width: 80%;
+	}
+	.currency-container {
+		width: 10% !important;
+	}
+	.big-input.currency {
+		width: 90% !important;
+	}
+	.date-chooser-home {
+		width: 80%;
+	}
+	.i-bet-container {
+		width: 80%;
+	}
+	.add-bet-condition.left, .add-bet-condition.right {
+		width: 100%;
+	}
+	.create-bet-btn {
+		width: 80%;
 	}
 }

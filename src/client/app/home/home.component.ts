@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   betNameStep2: boolean = false;
   step: number = 1;
   topHeight: string = '35%';
-  pageTwoHeight: string = '1200px';
   extraConditionName: string = '';
   extraConditionVal: string = '';
   loggedIn: boolean = false;
@@ -82,7 +81,6 @@ export class HomeComponent implements OnInit {
         this.betName = localStorage.getItem('bet-name-home');
         this.betObj.amount = localStorage.getItem('bet-amount-home')
         $('#home-step-' + this.step).show();
-        $('#home-container-top').css("height", this.pageTwoHeight);
         $('#home-title').css('marginTop', '15px');
       break;
     }
@@ -98,6 +96,7 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
 
   toggleValue(item: string): void {
     switch(item) {
@@ -164,25 +163,12 @@ export class HomeComponent implements OnInit {
 
   }
 
-  readjustTopH(): void {
-    var change: any = parseInt(this.pageTwoHeight.slice(0, this.pageTwoHeight.length - 2)) + (this.betObj.extraConditions.length * 65);
-    if (this.betObj.extraConditions.length >= 10) {
-      change -= 200;
-    }
-    change += 'px';
-    console.log('change: ' + change);
-    $('#home-container-top').animate({
-      height: change
-    }, "fast");
-  }
-
   addCondition(): void {
     if (!this.errorChecker('bet-condition-name') && !this.errorChecker('bet-condition-val')) {
       this.betObj.extraConditions.push({
         conditionName: this.extraConditionName,
         val: this.extraConditionVal
       });
-      this.readjustTopH();
       this.extraConditionVal = '';
       this.extraConditionName = '';
       $('#add-condition-name').css('border-color', '#cacaca');
@@ -200,7 +186,6 @@ export class HomeComponent implements OnInit {
 
   removeCondition(ind: number): void {
     this.betObj.extraConditions.splice(ind, 1);
-    this.readjustTopH();
   }
 
   betCreation(): void {
@@ -225,14 +210,10 @@ export class HomeComponent implements OnInit {
         } else {
           this.betNameErr = false;
           $('#home-step-1').fadeOut("slow", () => {
-            $('#home-container-top').animate({
-              height: this.pageTwoHeight
-            }, "slow", () => {
-              $('#home-title').animate({
-                marginTop: '15px'
-              }, "slow");
-              $("#home-step-2").fadeIn("slow");
-            });
+            $('#home-title').animate({
+              marginTop: '15px'
+            }, "slow");
+            $("#home-step-2").fadeIn("slow");
           });
         }
         break;
