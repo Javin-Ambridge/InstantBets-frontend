@@ -188,13 +188,17 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('bet-amount-home');
   }
 
-  betCreation(): void {
+  betCreation(loggedIn: boolean): void {
     if (!this.errorChecker('bet') && !this.errorChecker('bet-condition')) {
       $('#bet-name-container').css('border-color', '#cacaca');
       $('#bet-condition-input').css('border-color', '#cacaca');
       this.clearLocalStorage();
       this.betObj.name = this.betName;
-      this.auth.login(this.betObj);
+      if (loggedIn) {
+        this.auth.createBet(this.betObj, this.stateService);
+      } else {
+        this.auth.login(this.betObj);
+      }
     }
     if (this.errorChecker('bet')) {
       $('#bet-name-container').css('border-color', '#ff0033');

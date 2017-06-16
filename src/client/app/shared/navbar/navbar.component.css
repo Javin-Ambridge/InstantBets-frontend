@@ -26,3 +26,19 @@ nav a {
 .session-toggle:hover {
   color: #FEE64E;
 }
+
+.new-bet-nav {
+  padding-left: 20px;
+  display: inline-block;
+  position: relative;
+  padding-right: 20px;
+  font-size: 20px !important;
+  background-color: rgba(254, 230, 78, 0.96);
+  height: 40px;
+  color: black !important;
+  line-height: 2 !important;
+}
+
+.router-link-active {
+  opacity: 0.5;
+}

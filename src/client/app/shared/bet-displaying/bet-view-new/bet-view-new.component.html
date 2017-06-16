@@ -6,25 +6,30 @@
 	</div>
 	<div *ngIf="bets.length > 0">
 		<div *ngFor="let bet of bets; let i = index;" class="bet-container">
-			<span class="left-nice-img">
-				<span *ngIf="i % 2 == 0">
-					<img class="small-bet-person" src="/assets/images/home-female.png">
+			<div class="bet-top-container">
+				<span class="left-nice-img">
+					<span *ngIf="i % 2 == 0">
+						<img class="small-bet-person" src="/assets/images/home-female.png">
+					</span>
+					<span *ngIf="i % 2 != 0">
+						<img class="small-bet-person" src="/assets/images/home-male.png">
+					</span>
 				</span>
-				<span *ngIf="i % 2 != 0">
-					<img class="small-bet-person" src="/assets/images/home-male.png">
+				<span class="font1 bet-info-container">
+					<span class="bold f-size20">{{bet.betName}}</span>
+					<br>
+					<span class="end-date-info"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{bet.endDate | date:'fullDate'}}</span>
 				</span>
-			</span>
-			<span class="font1 bet-info-container">
-				<span class="bold f-size20">{{bet.betName}}</span>
-				<br>
-				<span class="end-date-info"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{bet.endDate | date:'fullDate'}}</span>
-			</span>
-			<span class="bet-amount-container">
-				<i class="fa fa-usd" aria-hidden="true"></i>&nbsp;{{bet.amount}}
-			</span>
-			<a class="button postfix delete-bet-btn hvr-glow"><i class="fa fa-times" aria-hidden="true"></i></a>
-			<a class="button postfix add-members-btn hvr-glow"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
-			<a class="button postfix edit-bet-btn hvr-glow"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+				<span class="bet-amount-container">
+					<i class="fa fa-usd" aria-hidden="true"></i>&nbsp;{{bet.amount}}
+				</span>
+				<a (click)="deleteBet(i)" class="button postfix delete-bet-btn hvr-glow"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<a class="button postfix add-members-btn hvr-glow"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+				<a (click)="editBet(i)" class="button postfix edit-bet-btn hvr-glow"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+			</div>
+			<div *ngIf="bet.edit" class="edit-container">
+				Editing
+			</div>
 		</div>
 	</div>
 </div>

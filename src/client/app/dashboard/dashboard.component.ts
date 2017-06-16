@@ -20,6 +20,7 @@ import 'rxjs/add/operator/map';
 export class DashboardComponent implements OnInit {
 	loggedIn: boolean = false;
 	bets: any = [];
+	bottomQuote: any;
 
 	constructor(public ref: ChangeDetectorRef,
 		public auth: AuthService,
@@ -35,6 +36,34 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getDBData();
+		this.setQuote();
+	}
+
+	setQuote(): void {
+		var quotes = [
+			{
+				text: "Everything's a gamble, love most of all.",
+				author: "Tess Gerritsen"
+			},
+			{
+				text: "Money won is twice as sweet as money earned.",
+				author: "The Color of Money"
+			},
+			{
+				text: "In a bet there is a fool and a thief.",
+				author: "Proverb"
+			},
+			{
+				text: "A gambler is nothing but a man who makes his living out of hope.",
+				author: "William Bolitho"
+			},
+			{
+				text: "Dear Lord, help me to break even. I need the money.",
+				author: "Everyone"
+			}
+		];
+		var rand = Math.floor(Math.random() * quotes.length);
+		this.bottomQuote = quotes[rand];
 	}
 
 	getDBData(): any {

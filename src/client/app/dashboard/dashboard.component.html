@@ -19,10 +19,12 @@
 				<a class="button large" (click)="attemptLogin()">Login/Signup</a>
 			</div>
 		</div>
-		<a [routerLink]="['/learn-more']" class="lower-container">
+		<div class="lower-container">
 			<div class="transition-to-next">
-				<span>Learn More <i class="fa fa-angle-right"></i></span>
+				{{bottomQuote.text}}
+				<br>
+				<span class="bold">{{bottomQuote.author}}</span>
 			</div>
-		</a>
+		</div>
 	</div>
 </div>

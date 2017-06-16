@@ -77,9 +77,9 @@
           				The button below will transition you to our partner Auth0 to authenticate you or create your account. Then the bet will be saved.
           			</span>
           			<br>
-          			<a (click)="betCreation()" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
+          			<a (click)="betCreation(false)" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
           		</div>
-          		<a *ngIf="loggedIn" (click)="betCreation()" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
+          		<a *ngIf="loggedIn" (click)="betCreation(true)" class="create-bet-btn hvr-bounce-to-top">Create Bet!</a>
 	        </div>
 		</div>
 		<a (click)="smoothScroll('learn-more-home')" class="lower-container">

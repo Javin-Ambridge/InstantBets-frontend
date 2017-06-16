@@ -8,11 +8,17 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    height: 55px;
+    height: inherit;
     border-width: 1px;
     border-style: solid;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.bet-top-container {
+    width: 100%;
+    height: inherit;
+    min-height: 55px;
 }
 
 .left-nice-img {
