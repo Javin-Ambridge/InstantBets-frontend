@@ -51,7 +51,8 @@ export class AuthService {
 	}
 
 	public createBet(betObj: any, stateService: any): void {
-		this.authHttp.post(`https://instantbet.herokuapp.com/api/create-bet`, {
+		//https://instantbet.herokuapp.com/api/create-bet
+		this.authHttp.post(`http://localhost:3000/api/create-bet`, {
 			bet: JSON.stringify(betObj)
 		})
 	      .map(res => res.json())

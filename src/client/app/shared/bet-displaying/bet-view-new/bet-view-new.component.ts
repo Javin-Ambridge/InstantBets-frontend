@@ -16,7 +16,8 @@ export class BetViewNewComponent {
     public ref: ChangeDetectorRef) {}
 
 	deleteBet(ind: number): void {
-		this.authHttp.post(`https://instantbet.herokuapp.com/api/delete-bet`, {
+		//https://instantbet.herokuapp.com/api/delete-bet
+		this.authHttp.post(`http://localhost:3000/api/delete-bet`, {
 			bet: JSON.stringify(this.bets[ind].id)
 		})
 	    .map(res => res.json())
