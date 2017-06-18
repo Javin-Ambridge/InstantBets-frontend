@@ -15,10 +15,35 @@
     margin-bottom: 5px;
 }
 
+.edit-container {
+    border-style: dashed;
+    border-top-width: 2px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.bet-name-container {
+    margin-top: 10px;
+}
+
+.bet-name-container.updated {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bet-top-container {
     width: 100%;
     height: inherit;
     min-height: 55px;
+}
+
+.money-input {
+    height: 45px;
+    width: 95%;
 }
 
 .left-nice-img {
@@ -30,6 +55,11 @@
 .small-bet-person {
 	height: 39px;
     margin-top: 5px;
+}
+
+.small-bet-person-update {
+    height: 25px;
+    margin-top: 10px;
 }
 
 .bet-info-container {
@@ -84,4 +114,20 @@
 
 .edit-bet-btn {
 	background-color: #5084d3;
+}
+
+.bet-name-input {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 45px;
+    margin-top: 10px;
+}
+
+.update-button {
+    background-color: #fee64e;
+    padding: 10px;
+    width: 40%;
+    color: black;
+    margin-bottom: 10px;
 }
