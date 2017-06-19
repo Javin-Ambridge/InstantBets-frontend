@@ -5,4 +5,54 @@
   <a *ngIf="!loggedIn" (click)="attemptLogin()" class="session-toggle font2"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Login/Signup</a>
   <a *ngIf="loggedIn" (click)="attemptLogout()" class="session-toggle font2"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Log Out</a>
   <a *ngIf="loggedIn" (click)="settingsClick()" class="fright"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+  <div *ngIf="settingsOpen" class="settings" id="settings-container">
+  	<div *ngIf="userInfo" class="user-settings">
+  		<span class="f-size20 font1">Hello <span class="bold">{{userInfo.name}}!</span></span>
+  		<div class="row settings-container font1">
+  			<div class="small-10 medium-9 fleft setting left">
+  				<span class="f-size20 bold">Email Notifications&nbsp;&nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></span>
+  				<br>
+  				<span class="f-size15 font2">We will never spam you. We only send emails for things such as bet invites and bets marked as complete.</span>
+  			</div>
+  			<div class="small-2 medium-3 fleft setting">
+	  			<div class="switch switch-fix">
+				  <input class="switch-input" id="emailNotifcations" type="checkbox" name="emailNotifcations" [(ngModel)]="settings.email_notifications" (ngModelChange)="emailNotifChange($event)">
+				  <label class="switch-paddle yellow" for="emailNotifcations">
+				    <span class="show-for-sr">Enable Emails</span>
+				  </label>
+				</div>
+  			</div>
+  			<div class="small-10 medium-9 fleft setting left disabled">
+  				<span class="f-size20 bold">Push Notifications&nbsp;&nbsp;<i class="fa fa-mobile" aria-hidden="true"></i></span>
+  				<br>
+  				<span class="f-size15 font2">Always keep up to date with your bets on the go. <span class="white bold">(Coming Soon!)</span></span>
+  			</div>
+  			<div class="small-2 medium-3 fleft setting disabled">
+  			  	<div class="switch switch-fix">
+				  <input class="switch-input" id="pushNotifications" type="checkbox" name="pushNotifications">
+				  <label class="switch-paddle yellow">
+				    <span class="show-for-sr">Enable Push Notifications</span>
+				  </label>
+				</div>
+  			</div>
+  			<div class="small-10 medium-9 fleft setting left">
+  				<span class="f-size20 bold">Max Bet Amount&nbsp;&nbsp;<i class="fa fa-money" aria-hidden="true"></i></span>
+  				<br>
+  				<span class="f-size15 font2">Just in case you want a reminder to not bet too much.</span>
+  			</div>
+  			<div class="small-1 fleft setting">
+  			  	<div class="switch switch-fix">
+				  <input class="switch-input" id="maxBetAmount" type="checkbox" name="maxBetAmount" [(ngModel)]="settings.max_bet_amount" (ngModelChange)="maxBetAmountChange($event)">
+				  <label class="switch-paddle yellow" for="maxBetAmount">
+				    <span class="show-for-sr">Enable Max Bet Amount</span>
+				  </label>
+				</div>
+  			</div>
+  			<div class="small-1 medium-2 fleft setting">
+  				<input [(ngModel)]="settings.max_amount" (ngModelChange)="maxBetAmountValChange($event)" class="m-top-5" type="number" min="0" step="10" placeholder="Enter Max Bet Amount" [disabled]="!settings.max_bet_amount">
+  			</div>
+  		</div>
+  		<span class="f-size20 font1">Account Created on: <span class="bold">{{userInfo.created_at | date:'fullDate'}}!</span></span>
+  	</div>
+  </div>
 </nav>

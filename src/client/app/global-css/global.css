@@ -14,6 +14,10 @@
 	margin-top: 0px !important;
 }
 
+.m-top-5 {
+	margin-top: 5px;
+}
+
 .border-l {
 	border-width: 0px 0px 0px 2px;
 	border-style: dashed;
@@ -31,6 +35,10 @@
 
 .fright {
 	float: right;
+}
+
+.fleft {
+	float: left;
 }
 
 .white {
@@ -328,6 +336,14 @@ hr.style18-white:before {
 
 .remove-condition-btn.undelete {
 	background-color: #4CCE69;
+}
+
+.disabled { 
+	color: rgba(189, 189, 189, 0.85);
+}
+
+input:checked~.switch-paddle.yellow {
+  background: #fee64e;
 }
 
 @media (max-width: 64em) {
