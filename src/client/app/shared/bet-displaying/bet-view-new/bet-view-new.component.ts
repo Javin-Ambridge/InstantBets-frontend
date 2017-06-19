@@ -39,6 +39,8 @@ export class BetViewNewComponent {
 				};
 			});
 		}
+		delete this.bets[ind].edit;
+		delete this.bets[ind].add_members;
 		this.authHttp.post(`http://localhost:3000/api/update-bet`, {
 			bet: JSON.stringify(this.bets[ind])
 		})
@@ -63,13 +65,11 @@ export class BetViewNewComponent {
 	}
 
 	addMembers(ind: number): void {
-		this.authHttp.post(`http://localhost:3000/api/send-invites`, {
-			bet: JSON.stringify(this.bets[ind])
-		})
-	    .map(res => res.json())
-	    .subscribe((ret) => {
-
-	    });
+		if (this.bets[ind].add_members == undefined) {
+			this.bets[ind].add_members = true;
+		} else {
+			this.bets[ind].add_members = !this.bets[ind].add_members;
+		}
 	}
 
 	editBet(ind: number): void {
