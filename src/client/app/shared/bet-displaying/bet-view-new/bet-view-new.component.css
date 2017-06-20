@@ -21,6 +21,14 @@
     min-height: 55px;
 }
 
+.edit-container {
+    border-top: dashed;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 2px;
+    margin-top: 5px;
+}
+
 .left-nice-img {
 	display: inline-block;
     float: left;
