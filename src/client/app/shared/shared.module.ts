@@ -18,7 +18,7 @@ import { BetViewNewComponent } from './bet-displaying/bet-view-new/bet-view-new.
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   declarations: 
     [
       NavbarComponent, 

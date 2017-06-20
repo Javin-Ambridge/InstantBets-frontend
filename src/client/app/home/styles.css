@@ -126,12 +126,6 @@
 	margin-top: 5px;
 }
 
-.i-bet-container {
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .i-bet-container-top {
 	display: inline-block;
 	width: 100%;
@@ -148,28 +142,6 @@
 
 .small-bet-person.right {
 	float: right;
-}
-
-.add-bet-condition {
-    float: left;
-    height: 50px;
-    margin-bottom: 0px;
-}
-
-.add-bet-condition.left {
-	width: 30%;
-}
-
-.add-bet-condition.right {
-	width: 70%;
-}
-
-.add-bet-cond-btn {
-	width: 100%;
-	height: 40px;
-	margin-bottom: 0px;
-	color: black;
-    background-color: #34A2FE;
 }
 
 .create-bet-btn {
@@ -189,33 +161,6 @@
     margin-right: auto;
     padding: 15px;
     display: inline-block;
-}
-
-.extra-condition-container {
-	width: 80%;
-    margin-left: auto;
-    height: 50px;
-    margin-right: auto;
-}
-
-.extra-condition-name {
-	width: 25%;
-    float: left;
-    height: 50px;
-}
-
-.extra-condition-val {
-	width: 60%;
-    float: left;
-    height: 50px;
-}
-
-.remove-condition-btn {
-	width: 15%;
-	float: left;
-	height: 50px;
-	font-size: 20px;
-    background-color: #ff0033;
 }
 
 .not-logged-in-save-bet {
@@ -277,12 +222,6 @@
 	}
 	.date-chooser-home {
 		width: 80%;
-	}
-	.i-bet-container {
-		width: 80%;
-	}
-	.add-bet-condition.left, .add-bet-condition.right {
-		width: 100%;
 	}
 	.create-bet-btn {
 		width: 80%;

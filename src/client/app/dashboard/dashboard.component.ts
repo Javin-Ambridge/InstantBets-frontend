@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
 		stateService.state.subscribe((item) => {
 			console.log("changing right here1");
 			this.loggedIn = item.loggedIn;
-			this.getDBData();
 			ref.markForCheck();
 		});
 	}
@@ -69,14 +68,13 @@ export class DashboardComponent implements OnInit {
 	getDBData(): any {
 		if (this.isLoggedIn()) {
 			if (localStorage.getItem('login-in') == 'api-not-called') {
-				console.log("api not intiially called...");
-				this.authHttp.post(`https://instantbet.herokuapp.com/api/login-user`, {})
+				//https://instantbet.herokuapp.com/api/login-user
+				this.authHttp.post(`http://localhost:3000/api/login-user`, {})
 			      .map(res => res.json())
 			      .subscribe((item) => {
 			      	localStorage.setItem('auth_id', item.auth_id);
 			      	localStorage.setItem('login-in', 'api-called');
-			      	console.log("authid: " + item.auth_id);
-				    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
+				    this.authHttp.get(`http://localhost:3000/api/dashboard`)
 				      .map(res => res.json())
 				      .subscribe((item) => {
 			      		this.bets = item.bets;
@@ -84,8 +82,7 @@ export class DashboardComponent implements OnInit {
 				      });
 			      });
 			} else {
-				console.log("api intiailly called...");
-			    this.authHttp.get(`https://instantbet.herokuapp.com/api/dashboard`)
+			    this.authHttp.get(`http://localhost:3000/api/dashboard`)
 			      .map(res => res.json())
 			      .subscribe((item) => {
 			      	this.bets = item.bets;

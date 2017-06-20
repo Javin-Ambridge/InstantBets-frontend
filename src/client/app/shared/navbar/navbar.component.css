@@ -3,6 +3,11 @@
   display: block;
   height: 48px;
   padding: 0 16px;
+  background-color: #4681FA;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  height: inherit;
 }
 
 nav a {
@@ -41,4 +46,40 @@ nav a {
 
 .router-link-active {
   opacity: 0.5;
+}
+
+.settings {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-color: white;
+  border-top-width: 2px;
+  border-top-style: dashed;
+  margin-top: 10px;
+}
+
+.user-settings {
+  margin-top: 10px;
+  color: white;
+}
+
+.settings-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.setting {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 55px;
+  overflow: hidden;
+}
+
+.setting.left {
+  border-style: dotted;
+  border-width: 1px 0px;
+}
+
+.switch-fix {
+  line-height: 5.4;
 }

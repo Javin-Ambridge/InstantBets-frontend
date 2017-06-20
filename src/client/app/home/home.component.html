@@ -21,7 +21,7 @@
 		        	</span>
 		        </a>
 		        <div *ngIf="betNameStep2" class="bet-name-container">
-			       	<input [(ngModel)]="betName" class="big-input no-margin-bot" type="text" placeholder="Name your bet" maxlength="50">
+			       	<input [(ngModel)]="betName" class="big-input no-margin-bot" type="text" placeholder="Name your bet" maxlength="30">
 	          		<a (click)="saveVal('bet')" class="button postfix bet-edit-btn hvr-icon-fade no-margin-bot">Save</a>
 	          	</div>
           		<span *ngIf="betNameErr" class="font2 error-color">Please input a bet name to continue..</span>
@@ -51,18 +51,18 @@
           		</div>
           		<br>
           		<hr class="divider-bet-init">
-          			<span *ngIf="betObj.extraConditions.length == 0">
-		          		<span class="font2">No extra conditions added yet...</span>
-		          		<br>
-		          		<span class="font2">Add up to 10 conditions below, this can be anything from non-monetary prizes to bet exceptions.</span>
-		          	</span>
-		          	<div *ngIf="betObj.extraConditions.length > 0">
-		 				<div *ngFor="let cond of betObj.extraConditions; let i = index" class="extra-condition-container">
-		 					<input type="text" maxlength="25" [(ngModel)]="betObj.extraConditions[i].conditionName" class="extra-condition-name">
-		 					<input type="text" maxlength="25" [(ngModel)]="betObj.extraConditions[i].val" class="extra-condition-val">
-		 					<a (click)="removeCondition(i)" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-		 				</div>
-		          	</div>
+      			<span *ngIf="betObj.extraConditions.length == 0">
+	          		<span class="font2">No extra conditions added yet...</span>
+	          		<br>
+	          		<span class="font2">Add up to 10 conditions below, this can be anything from non-monetary prizes to bet exceptions.</span>
+	          	</span>
+	          	<div *ngIf="betObj.extraConditions.length > 0">
+	 				<div *ngFor="let cond of betObj.extraConditions; let i = index" class="extra-condition-container">
+	 					<input type="text" maxlength="25" [(ngModel)]="betObj.extraConditions[i].conditionName" class="extra-condition-name">
+	 					<input type="text" maxlength="25" [(ngModel)]="betObj.extraConditions[i].val" class="extra-condition-val">
+	 					<a (click)="removeCondition(i)" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+	 				</div>
+	          	</div>
           		<hr class="divider-bet-init">
           		<div *ngIf="betObj.extraConditions.length < 10" class="i-bet-container">
           			<input type="text" placeholder="Condition Name" class="add-bet-condition left" maxlength="25" id="add-condition-name" [(ngModel)]="extraConditionName">
