@@ -17,6 +17,7 @@ export class BetViewNewComponent {
     public ref: ChangeDetectorRef) {}
 
 	deleteBet(ind: number): void {
+		this.toggleOff(1, ind);
 		//https://instantbet.herokuapp.com/api/delete-bet
 		this.authHttp.post(`http://localhost:3000/api/delete-bet`, {
 			bet: JSON.stringify(this.bets[ind].id)
@@ -64,18 +65,43 @@ export class BetViewNewComponent {
 	    });
 	}
 
+	toggleOff(val: number, ind: number): void {
+		switch(val) {
+			case 1:
+				if (this.bets[ind].edit)
+					this.bets[ind].edit = false;
+				if (this.bets[ind].add_members)
+					this.bets[ind].add_members = false;
+				break;
+			case 2:
+				if (this.bets[ind].edit)
+					this.bets[ind].edit = false;
+				break;
+			case 3:
+				if (this.bets[ind].add_members)
+					this.bets[ind].add_members = false;
+			break;
+		}
+	}
+
 	addMembers(ind: number): void {
 		if (this.bets[ind].add_members == undefined) {
+			this.toggleOff(2, ind);
 			this.bets[ind].add_members = true;
 		} else {
+			if (!this.bets[ind].add_members)
+				this.toggleOff(2, ind);
 			this.bets[ind].add_members = !this.bets[ind].add_members;
 		}
 	}
 
 	editBet(ind: number): void {
 		if (this.bets[ind].edit == undefined) {
+			this.toggleOff(3, ind);
 			this.bets[ind].edit = true;
 		} else {
+			if (!this.bets[ind].edit)
+				this.toggleOff(3, ind);
 			this.bets[ind].edit = !this.bets[ind].edit;
 		}
 	}
