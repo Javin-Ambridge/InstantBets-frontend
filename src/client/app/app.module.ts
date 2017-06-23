@@ -24,7 +24,15 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, HomeModule, LearnMoreModule, DashboardModule, SharedModule.forRoot()],
+  imports: [
+    BrowserModule, 
+    HttpModule, 
+    AppRoutingModule, 
+    HomeModule, 
+    LearnMoreModule, 
+    DashboardModule, 
+    SharedModule.forRoot()
+  ],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

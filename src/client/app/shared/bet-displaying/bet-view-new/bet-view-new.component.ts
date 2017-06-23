@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
+import * as $ from 'jquery';
 
 @Component({
   moduleId: module.id,
@@ -180,5 +181,30 @@ export class BetViewNewComponent {
 		if (this.bets[ind].newConditions == undefined)
 			return this.bets[ind].conditions.length == 0;
 		return this.bets[ind].conditions.length == 0 && this.bets[ind].newConditions.length == 0;
+	}
+
+	copyShortLink(ind: number): void {
+		this.copyToClipboard('short-link-' + ind);
+	}
+
+	copyToClipboard(elem: any): any	 {
+		//Yea I cant get this to work... (we should probably get this working lol.)
+		// It should just theoretically copy the shortlink that we have pasted there.
+		//Lets also look into adding an animation on the element we copy so it looks cool
+		//I can help with this if needed -Javin
+	}
+
+	sendInviteEmails(): void {
+		var emailAddr: any = [
+			'test@bidding.com',
+			'foo@bar.com'
+		];
+		this.authHttp.post(`http://localhost:3000/api/send-invites`, {
+			friends: JSON.stringify(emailAddr)
+		})
+	    .map(res => res.json())
+	    .subscribe((ret) => {
+	    	console.log("The response from the API is: ", ret);
+	    });
 	}
 }

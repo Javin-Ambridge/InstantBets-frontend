@@ -139,3 +139,21 @@
     color: black;
     margin-bottom: 10px;
 }
+
+.short-link {
+    display: inline-block;
+    width: 80%;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    float: left;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.short-link-copy {
+    display: inline-block;
+    width: 20%;
+    float: right;
+    padding: 10px;
+}

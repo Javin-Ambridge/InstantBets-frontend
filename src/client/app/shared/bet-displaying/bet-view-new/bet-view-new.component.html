@@ -29,7 +29,22 @@
 			</div>
 			<div *ngIf="bet.edit || bet.add_members" class="edit-container">
 				<div *ngIf="bet.add_members">
-					Add memeber
+					<div class="bet-name-container">
+						<span class="font1 f-size20">Add Members to this bet</span>
+						<br>
+						<span class="font2 f-size15">You can add up to <span class="bold">5</span> friends to a bet.</span>
+					</div>
+	          		<hr class="divider-bet-init">
+	          		<div class="bet-name-container updated">
+	          			<div class="h-50">
+		          			<a (click)="copyShortLink(i)" class="short-link-copy">Copy</a>
+		          			<p class="short-link" [attr.id]="'short-link-' + i">www.shortlink.com</p>
+		          			<br><br>
+		          			<span class="font2 f-size15">Quickly send them a link to the specific page for this bet.</span>
+		          		</div>
+	          		</div>
+	          		<hr class="divider-bet-init">
+	          		<a (click)="sendInviteEmails()">Fake Send Emails</a>
 				</div>
 				<div *ngIf="bet.edit">
 					<div class="bet-name-container">
