@@ -194,13 +194,14 @@ export class BetViewNewComponent {
 		//I can help with this if needed -Javin
 	}
 
-	sendInviteEmails(): void {
+	sendInviteEmails(ind: number): void {
 		var emailAddr: any = [
 			'test@bidding.com',
 			'foo@bar.com'
 		];
 		this.authHttp.post(`http://localhost:3000/api/send-invites`, {
-			friends: JSON.stringify(emailAddr)
+			friends: JSON.stringify(emailAddr),
+			betId: JSON.stringify(this.bets[ind].id)
 		})
 	    .map(res => res.json())
 	    .subscribe((ret) => {
