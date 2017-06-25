@@ -35,11 +35,18 @@ export class NavbarComponent {
 			this.loggedIn = item.loggedIn;
 			ref.markForCheck();
 		});
+		var lastval: number = undefined;
         this.amountChange
 	        .debounceTime(1000)
 	        .switchMap(val => {
 	                console.log('called once: ' + val)
-	                return this.maxAmountUpdate(parseInt(val));
+	                if (lastval == undefined || lastval != parseInt(val)) {
+	                	lastval = parseInt(val);
+	                	return this.maxAmountUpdate(parseInt(val));
+	                } else {
+	                	//most likely a duplicate call (no point in wasting api resources)
+	                	return [true];
+	                }
 	            }).subscribe(results => {
 	                console.log(results);
 	            }, error => {
