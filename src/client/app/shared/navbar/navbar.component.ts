@@ -4,6 +4,7 @@ import { StateService } from '../state/state.service';
 import * as $ from 'jquery';
 import { AuthHttp } from 'angular2-jwt';
 import { Subject } from 'rxjs/Subject';
+import { environment } from '../../../environments/environment';
 
 /**
  * This class represents the navigation bar component.
@@ -56,7 +57,7 @@ export class NavbarComponent {
 	}
 
 	maxAmountUpdate(val: number): any {
-		return this.authHttp.post(`http://localhost:3000/api/user-settings/max-amount`, {
+		return this.authHttp.post(environment.apiURL + '/api/user-settings/max-amount', {
 			val: JSON.stringify(val)
 		})
 	    .map(res => res.json());
@@ -71,7 +72,7 @@ export class NavbarComponent {
 	}
 
 	getUserInfo(): any {
-		this.authHttp.get(`http://localhost:3000/api/user-info`)
+		this.authHttp.get(environment.apiURL + '/api/user-info')
 	    .map(res => res.json())
 	    .subscribe((ret) => {
 	    	this.userInfo = ret.user_info;
@@ -104,7 +105,7 @@ export class NavbarComponent {
 	}
 
 	emailNotifChange(newValue: any): void {
-		this.authHttp.post(`http://localhost:3000/api/user-settings/email`, {
+		this.authHttp.post(environment.apiURL + '/api/user-settings/email', {
 			val: JSON.stringify(newValue)
 		})
 	    .map(res => res.json())
@@ -112,7 +113,7 @@ export class NavbarComponent {
 	}
 
 	maxBetAmountChange(newValue: any): void {
-		this.authHttp.post(`http://localhost:3000/api/user-settings/max-bet`, {
+		this.authHttp.post(environment.apiURL + '/api/user-settings/max-bet', {
 			val: JSON.stringify(newValue)
 		})
 	    .map(res => res.json())

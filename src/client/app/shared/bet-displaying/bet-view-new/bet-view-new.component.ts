@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   moduleId: module.id,
@@ -18,7 +19,7 @@ export class BetViewNewComponent {
 
 	deleteBet(ind: number): void {
 		//https://instantbet.herokuapp.com/api/delete-bet
-		this.authHttp.post(`http://localhost:3000/api/delete-bet`, {
+		this.authHttp.post(environment.apiURL + '/api/delete-bet', {
 			bet: JSON.stringify(this.bets[ind].id)
 		})
 	    .map(res => res.json())
@@ -41,7 +42,7 @@ export class BetViewNewComponent {
 		}
 		delete this.bets[ind].edit;
 		delete this.bets[ind].add_members;
-		this.authHttp.post(`http://localhost:3000/api/update-bet`, {
+		this.authHttp.post(environment.apiURL + '/api/update-bet', {
 			bet: JSON.stringify(this.bets[ind])
 		})
 	    .map(res => res.json())
