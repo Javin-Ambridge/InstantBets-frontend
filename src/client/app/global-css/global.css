@@ -33,6 +33,10 @@
 	margin-right: auto;
 }
 
+.h-50 {
+	height: 50px;
+}
+
 .fright {
 	float: right;
 }

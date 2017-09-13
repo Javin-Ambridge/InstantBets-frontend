@@ -27,78 +27,98 @@
 				<a (click)="addMembers(i)" class="button postfix add-members-btn hvr-glow"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
 				<a (click)="editBet(i)" class="button postfix edit-bet-btn hvr-glow"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 			</div>
-			<div *ngIf="bet.edit" class="edit-container">
-				<div class="bet-name-container">
-					<span class="font1 f-size20">Bet Title</span>
-			       	<input class="bet-name-input no-margin-top" type="text" placeholder="Name your bet" maxlength="30" [(ngModel)]="bet.betName">
-	          	</div>
-				<div class="bet-name-container updated">
-	          		<span class="font1 f-size20">Bet Amount</span>
-	          		<br>
-					<span class="currency-container"><i class="fa fa-usd dollar-sign currency" aria-hidden="true"></i></span>
-					<input [(ngModel)]="bet.amount" class="money-input currency no-margin-bot" type="number" min="0.00" step="1.00" placeholder="Enter an amount for the bet" id="bet-amount-container">
-	          	</div>
-				<div class="bet-name-container updated">
-	          		<span class="font1 f-size20">Expected End Date</span>
-	          		<br>
-	          		<span class="currency-container"><i class="fa fa-calendar-times-o dollar-sign calendar" aria-hidden="true"></i></span>
-	          		<input type="date" [ngModel] ="bet.endDate | date:'yyyy-MM-dd'" (ngModelChange)="bet.endDate = $event" [value]="datee | date:'yyyy-MM-dd'" class="money-input">
-				</div>
-				<div class="bet-name-container updated">
-	          		<span class="font1 f-size20">I Bet</span>
-	          		<br>
-					<span *ngIf="i % 2 == 0" class="currency-container">
-						<img class="small-bet-person-update" src="/assets/images/home-female.png">
-					</span>
-					<span *ngIf="i % 2 != 0" class="currency-container">
-						<img class="small-bet-person-update" src="/assets/images/home-male.png">
-					</span>
-          			<input type="text" class="money-input" maxlength="100" placeholder="Batman would beat Superman in a fight." id="bet-condition-input" [(ngModel)]="bet.primarycondition">
-				</div>
-          		<hr *ngIf="bet.conditions.length > 0 || noConditions(i)" class="divider-bet-init">
-          		<span *ngIf="noConditions(i)" class="font2 f-size15">Looks like no conditions have been added, feel free to add up to 10!</span>
-	          	<div *ngIf="bet.conditions.length > 0">
-	          		<span>Current Conditions</span>
-	 				<div *ngFor="let cond of bet.conditions; let k = index" class="extra-condition-container">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.conditions[k].condition_name" class="extra-condition-name">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.conditions[k].condition" class="extra-condition-val">
-	 					<a (click)="removeCondition(bet.conditions[k])" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-	 				</div>
-	          	</div>
-          		<hr *ngIf="bet.newConditions && bet.newConditions.length > 0" class="divider-bet-init">
-	          	<div *ngIf="bet.newConditions && bet.newConditions.length > 0">
-	          		<span>New Conditions</span>
-	 				<div *ngFor="let cond of bet.newConditions; let k = index" class="extra-condition-container">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.newConditions[k].condition_name" class="extra-condition-name">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.newConditions[k].condition" class="extra-condition-val">
-	 					<a (click)="removeCondition2(bet.newConditions[k])" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-	 				</div>
-	          	</div>
-          		<hr *ngIf="bet.deletedConditions && bet.deletedConditions.length > 0" class="divider-bet-init">
-	          	<div *ngIf="bet.deletedConditions && bet.deletedConditions.length > 0">
-	          		<span>Deleted Conditions</span>
-	 				<div *ngFor="let cond of bet.deletedConditions; let k = index" class="extra-condition-container">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.deletedConditions[k].condition_name" class="extra-condition-name">
-	 					<input type="text" maxlength="25" [(ngModel)]="bet.deletedConditions[k].condition" class="extra-condition-val">
-	 					<a (click)="undeleteCond(bet.deletedConditions[k])" class="button postfix remove-condition-btn undelete"><i class="fa fa-plus" aria-hidden="true"></i></a>
-	 				</div>
-	          	</div>
-          		<hr class="divider-bet-init">
-              	<div *ngIf="lessThanTenConditions(i)" class="i-bet-container">
-          			<input type="text" placeholder="Condition Name" class="add-bet-condition left" maxlength="25" id="add-condition-name" [(ngModel)]="bet.tmpNewConditionN">
-          			<input type="text" placeholder="Condition" class="add-bet-condition right" maxlength="50" id="add-condition-val" [(ngModel)]="bet.tmpNewConditionV">
-          			<a (click)="addNewCondition(i)" class="button postfix add-bet-cond-btn font1 hvr-glow">Add Condition</a>
-          		</div>
-          		<hr *ngIf="lessThanTenConditions(i)" class="divider-bet-init">
-          		<div>
-	           		<a (click)="updateBet(i)" class="hvr-sweep-to-top update-button bold font1">Update</a>
-					<div *ngIf="bet.uploading" class="sk-folding-cube upload">
-					  <div class="sk-cube1 sk-cube upload"></div>
-					  <div class="sk-cube2 sk-cube upload"></div>
-					  <div class="sk-cube4 sk-cube upload"></div>
-					  <div class="sk-cube3 sk-cube upload"></div>
+			<div *ngIf="bet.edit || bet.add_members" class="edit-container">
+				<div *ngIf="bet.add_members">
+					<div class="bet-name-container">
+						<span class="font1 f-size20">Add Members to this bet</span>
+						<br>
+						<span class="font2 f-size15">You can add up to <span class="bold">5</span> friends to a bet.</span>
 					</div>
-          		</div>
+	          		<hr class="divider-bet-init">
+	          		<div class="bet-name-container updated">
+	          			<div class="h-50">
+		          			<a (click)="copyShortLink(i)" class="short-link-copy">Copy</a>
+		          			<p class="short-link" [attr.id]="'short-link-' + i">www.shortlink.com</p>
+		          			<br><br>
+		          			<span class="font2 f-size15">Quickly send them a link to the specific page for this bet.</span>
+		          		</div>
+	          		</div>
+	          		<hr class="divider-bet-init">
+	          		<a (click)="sendInviteEmails(bet.id)">Fake Send Emails</a>
+				</div>
+				<div *ngIf="bet.edit">
+					<div class="bet-name-container">
+						<span class="font1 f-size20">Bet Title</span>
+				       	<input class="bet-name-input no-margin-top" type="text" placeholder="Name your bet" maxlength="30" [(ngModel)]="bet.betName">
+		          	</div>
+					<div class="bet-name-container updated">
+		          		<span class="font1 f-size20">Bet Amount</span>
+		          		<br>
+						<span class="currency-container"><i class="fa fa-usd dollar-sign currency" aria-hidden="true"></i></span>
+						<input [(ngModel)]="bet.amount" class="money-input currency no-margin-bot" type="number" min="0.00" step="1.00" placeholder="Enter an amount for the bet" id="bet-amount-container">
+		          	</div>
+					<div class="bet-name-container updated">
+		          		<span class="font1 f-size20">Expected End Date</span>
+		          		<br>
+		          		<span class="currency-container"><i class="fa fa-calendar-times-o dollar-sign calendar" aria-hidden="true"></i></span>
+		          		<input type="date" [ngModel] ="bet.endDate | date:'yyyy-MM-dd'" (ngModelChange)="bet.endDate = $event" [value]="datee | date:'yyyy-MM-dd'" class="money-input">
+					</div>
+					<div class="bet-name-container updated">
+		          		<span class="font1 f-size20">I Bet</span>
+		          		<br>
+						<span *ngIf="i % 2 == 0" class="currency-container">
+							<img class="small-bet-person-update" src="/assets/images/home-female.png">
+						</span>
+						<span *ngIf="i % 2 != 0" class="currency-container">
+							<img class="small-bet-person-update" src="/assets/images/home-male.png">
+						</span>
+	          			<input type="text" class="money-input" maxlength="100" placeholder="Batman would beat Superman in a fight." id="bet-condition-input" [(ngModel)]="bet.primarycondition">
+					</div>
+	          		<hr *ngIf="bet.conditions.length > 0 || noConditions(i)" class="divider-bet-init">
+	          		<span *ngIf="noConditions(i)" class="font2 f-size15">Looks like no conditions have been added, feel free to add up to 10!</span>
+		          	<div *ngIf="bet.conditions.length > 0">
+		          		<span>Current Conditions</span>
+		 				<div *ngFor="let cond of bet.conditions; let k = index" class="extra-condition-container">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.conditions[k].condition_name" class="extra-condition-name">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.conditions[k].condition" class="extra-condition-val">
+		 					<a (click)="removeCondition(bet.conditions[k])" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+		 				</div>
+		          	</div>
+	          		<hr *ngIf="bet.newConditions && bet.newConditions.length > 0" class="divider-bet-init">
+		          	<div *ngIf="bet.newConditions && bet.newConditions.length > 0">
+		          		<span>New Conditions</span>
+		 				<div *ngFor="let cond of bet.newConditions; let k = index" class="extra-condition-container">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.newConditions[k].condition_name" class="extra-condition-name">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.newConditions[k].condition" class="extra-condition-val">
+		 					<a (click)="removeCondition2(bet.newConditions[k])" class="button postfix remove-condition-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+		 				</div>
+		          	</div>
+	          		<hr *ngIf="bet.deletedConditions && bet.deletedConditions.length > 0" class="divider-bet-init">
+		          	<div *ngIf="bet.deletedConditions && bet.deletedConditions.length > 0">
+		          		<span>Deleted Conditions</span>
+		 				<div *ngFor="let cond of bet.deletedConditions; let k = index" class="extra-condition-container">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.deletedConditions[k].condition_name" class="extra-condition-name">
+		 					<input type="text" maxlength="25" [(ngModel)]="bet.deletedConditions[k].condition" class="extra-condition-val">
+		 					<a (click)="undeleteCond(bet.deletedConditions[k])" class="button postfix remove-condition-btn undelete"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		 				</div>
+		          	</div>
+	          		<hr class="divider-bet-init">
+	              	<div *ngIf="lessThanTenConditions(i)" class="i-bet-container">
+	          			<input type="text" placeholder="Condition Name" class="add-bet-condition left" maxlength="25" id="add-condition-name" [(ngModel)]="bet.tmpNewConditionN">
+	          			<input type="text" placeholder="Condition" class="add-bet-condition right" maxlength="50" id="add-condition-val" [(ngModel)]="bet.tmpNewConditionV">
+	          			<a (click)="addNewCondition(i)" class="button postfix add-bet-cond-btn font1 hvr-glow">Add Condition</a>
+	          		</div>
+	          		<hr *ngIf="lessThanTenConditions(i)" class="divider-bet-init">
+	          		<div>
+		           		<a (click)="updateBet(i)" class="hvr-sweep-to-top update-button bold font1">Update</a>
+						<div *ngIf="bet.uploading" class="sk-folding-cube upload">
+						  <div class="sk-cube1 sk-cube upload"></div>
+						  <div class="sk-cube2 sk-cube upload"></div>
+						  <div class="sk-cube4 sk-cube upload"></div>
+						  <div class="sk-cube3 sk-cube upload"></div>
+						</div>
+	          		</div>
+	          	</div>
 			</div>
 		</div>
 	</div>

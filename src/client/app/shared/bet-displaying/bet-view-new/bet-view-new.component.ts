@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
+import * as $ from 'jquery';
 
 @Component({
   moduleId: module.id,
@@ -17,6 +18,7 @@ export class BetViewNewComponent {
     public ref: ChangeDetectorRef) {}
 
 	deleteBet(ind: number): void {
+		this.toggleOff(1, ind);
 		//https://instantbet.herokuapp.com/api/delete-bet
 		this.authHttp.post(`http://localhost:3000/api/delete-bet`, {
 			bet: JSON.stringify(this.bets[ind].id)
@@ -64,18 +66,43 @@ export class BetViewNewComponent {
 	    });
 	}
 
+	toggleOff(val: number, ind: number): void {
+		switch(val) {
+			case 1:
+				if (this.bets[ind].edit)
+					this.bets[ind].edit = false;
+				if (this.bets[ind].add_members)
+					this.bets[ind].add_members = false;
+				break;
+			case 2:
+				if (this.bets[ind].edit)
+					this.bets[ind].edit = false;
+				break;
+			case 3:
+				if (this.bets[ind].add_members)
+					this.bets[ind].add_members = false;
+			break;
+		}
+	}
+
 	addMembers(ind: number): void {
 		if (this.bets[ind].add_members == undefined) {
+			this.toggleOff(2, ind);
 			this.bets[ind].add_members = true;
 		} else {
+			if (!this.bets[ind].add_members)
+				this.toggleOff(2, ind);
 			this.bets[ind].add_members = !this.bets[ind].add_members;
 		}
 	}
 
 	editBet(ind: number): void {
 		if (this.bets[ind].edit == undefined) {
+			this.toggleOff(3, ind);
 			this.bets[ind].edit = true;
 		} else {
+			if (!this.bets[ind].edit)
+				this.toggleOff(3, ind);
 			this.bets[ind].edit = !this.bets[ind].edit;
 		}
 	}
@@ -154,5 +181,31 @@ export class BetViewNewComponent {
 		if (this.bets[ind].newConditions == undefined)
 			return this.bets[ind].conditions.length == 0;
 		return this.bets[ind].conditions.length == 0 && this.bets[ind].newConditions.length == 0;
+	}
+
+	copyShortLink(ind: number): void {
+		this.copyToClipboard('short-link-' + ind);
+	}
+
+	copyToClipboard(elem: any): any	 {
+		//Yea I cant get this to work... (we should probably get this working lol.)
+		// It should just theoretically copy the shortlink that we have pasted there.
+		//Lets also look into adding an animation on the element we copy so it looks cool
+		//I can help with this if needed -Javin
+	}
+
+	sendInviteEmails(id: number): void {
+		var emailAddr: any = [
+			'test@bidding.com',
+			'foo@bar.com'
+		];
+		this.authHttp.post(`http://localhost:3000/api/send-invites`, {
+			friends: JSON.stringify(emailAddr),
+			betId: JSON.stringify(id)
+		})
+	    .map(res => res.json())
+	    .subscribe((ret) => {
+	    	console.log("The response from the API is: ", ret);
+	    });
 	}
 }
