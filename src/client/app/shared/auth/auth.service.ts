@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 import { AuthHttp } from 'angular2-jwt';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -52,7 +53,7 @@ export class AuthService {
 
 	public createBet(betObj: any, stateService: any): void {
 		//https://instantbet.herokuapp.com/api/create-bet
-		this.authHttp.post(`http://localhost:3000/api/create-bet`, {
+		this.authHttp.post(environment.apiURL + '/api/create-bet', {
 			bet: JSON.stringify(betObj)
 		})
 	      .map(res => res.json())

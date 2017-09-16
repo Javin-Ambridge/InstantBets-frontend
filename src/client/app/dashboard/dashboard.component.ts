@@ -5,6 +5,7 @@ import { ScrollAnimationService } from '../shared/scroll-animation/scroll-animat
 import { AuthService } from '../shared/auth/auth.service';
 import { AuthHttp } from 'angular2-jwt';
 import { RequestOptions } from '@angular/http';
+import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/map';
 
 /**
@@ -69,12 +70,12 @@ export class DashboardComponent implements OnInit {
 		if (this.isLoggedIn()) {
 			if (localStorage.getItem('login-in') == 'api-not-called') {
 				//https://instantbet.herokuapp.com/api/login-user
-				this.authHttp.post(`http://localhost:3000/api/login-user`, {})
+				this.authHttp.post(environment.apiURL + '/api/login-user', {})
 			      .map(res => res.json())
 			      .subscribe((item) => {
 			      	localStorage.setItem('auth_id', item.auth_id);
 			      	localStorage.setItem('login-in', 'api-called');
-				    this.authHttp.get(`http://localhost:3000/api/dashboard`)
+				    this.authHttp.get(environment.apiURL + '/api/dashboard')
 				      .map(res => res.json())
 				      .subscribe((item) => {
 			      		this.bets = item.bets;
@@ -82,7 +83,7 @@ export class DashboardComponent implements OnInit {
 				      });
 			      });
 			} else {
-			    this.authHttp.get(`http://localhost:3000/api/dashboard`)
+			    this.authHttp.get(environment.apiURL + '/api/dashboard')
 			      .map(res => res.json())
 			      .subscribe((item) => {
 			      	this.bets = item.bets;
